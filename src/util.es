@@ -18,7 +18,7 @@
 /**
  * Returns the name of the injection target.
  *
- * @param {Function|Object} target the target object or function
+ * @param {Function|Object} target - the target object or function
  * @returns {String} the target's name
  */
 export function targetName(target)

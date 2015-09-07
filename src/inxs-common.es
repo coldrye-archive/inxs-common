@@ -29,9 +29,10 @@ export class AbstractInjector
 	/**
 	 * TODO:document
 	 *
-	 * @param {Function|Object} target the target object or function
-	 * @param {String} attr the target's attribute
-	 * @param {Object<PropertyDescriptor>} descriptor the descriptor
+	 * @param {Function|Object} target - the target object or function
+	 * @param {String} attr - the target's attribute
+	 * @param {Object<PropertyDescriptor|MethodDescriptor>} descriptor -
+     * the descriptor
 	 * @returns {Boolean}
 	 */
 	/*eslint no-unused-vars:0*/
@@ -43,15 +44,17 @@ export class AbstractInjector
 	/**
 	 * TODO:document
 	 *
-	 * @param {Function|Object} target the target object or function
-	 * @param {String} attr the target's attribute
-	 * @param {Object<PropertyDescriptor>} descriptor the descriptor
-	 * @param {Array<String|Function>} ifaces the interfaces to inject
+	 * @param {Function|Object} target - the target object or function
+	 * @param {String} attr - the target's attribute
+	 * @param {Object<PropertyDescriptor|MethodDescriptor>} descriptor -
+     * the descriptor
+	 * @param {Array<String|Function>} ifaces - the interfaces to inject
+	 * @param {Object} options - optional additional parameters
 	 * @throws {InjectionError}
      * @returns {void}
 	 */
 	/*eslint no-unused-vars:0*/
-    inject(target, attr, descriptor, ifaces)
+    inject(target, attr, descriptor, ifaces, options = {})
 	{
         throw new Error(messages.MSG_DERIVED_CLASSES_MUST_OVERRIDE);
     }
@@ -71,12 +74,6 @@ export class AbstractStaticPropertyInjector extends AbstractInjector
 			typeof descriptor == 'object' &&
 			typeof attr == 'string';
     }
-
-	// Derived classes should call super.inject(...)
-	inject(target, attr, descriptor, ifaces)
-	{
-        assertions.assertNotInitialized(target, attr, descriptor, ifaces);
-	}
 }
 
 
@@ -93,12 +90,6 @@ export class AbstractInstancePropertyInjector extends AbstractInjector
 			descriptor !== null &&
 			typeof descriptor == 'object' &&
 			typeof attr == 'string';
-	}
-
-	// Derived classes should call super.inject(...)
-	inject(target, attr, descriptor, ifaces)
-	{
-        assertions.assertNotInitialized(target, attr, descriptor, ifaces);
 	}
 }
 
@@ -117,14 +108,6 @@ export class AbstractStaticMethodInjector extends AbstractInjector
 			typeof attr == 'string' &&
 			typeof descriptor.value == 'function';
 	}
-
-	// Derived classes should call super.inject(...)
-	inject(target, attr, descriptor, ifaces)
-	{
-		assertions.assertFormalParametersMatch (
-			target, attr, descriptor, ifaces
-		);
-	}
 }
 
 
@@ -142,14 +125,6 @@ export class AbstractInstanceMethodInjector extends AbstractInjector
 			typeof descriptor == 'object' &&
 			typeof attr == 'string' &&
 			typeof descriptor.value == 'function';
-	}
-
-	// Derived classes should call super.inject(...)
-	inject(target, attr, descriptor, ifaces)
-	{
-		assertions.assertFormalParametersMatch (
-			target, attr, descriptor, ifaces
-		);
 	}
 }
 

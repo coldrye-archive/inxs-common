@@ -25,10 +25,10 @@ import * as util from './util';
  * Asserts that the specified property descriptor does not define an
  * initializer.
  *
- * @param {Function|Object} target the target object or function
- * @param {String} attr the target's attribute
- * @param {Object<PropertyDescriptor>} descriptor the descriptor
- * @param {Array<String|Function>} ifaces the interfaces to inject
+ * @param {Function|Object} target - the target object or function
+ * @param {String} attr - the target's attribute
+ * @param {Object<PropertyDescriptor>} descriptor - the descriptor
+ * @param {Array<String|Function>} ifaces - the interfaces to inject
  * @throws {InjectionError}
  * @returns {void}
  */
@@ -48,10 +48,10 @@ export function assertNotInitialized(target, attr, descriptor, ifaces)
 /**
  * Asserts that the user tries to inject a single interface only.
  *
- * @param {Function|Object} target the target object or function
- * @param {String} attr the target's attribute
- * @param {Object<PropertyDescriptor>} descriptor the descriptor
- * @param {Array<String|Function>} ifaces the interfaces to inject
+ * @param {Function|Object} target - the target object or function
+ * @param {String} attr - the target's attribute
+ * @param {Object<PropertyDescriptor>} descriptor - the descriptor
+ * @param {Array<String|Function>} ifaces - the interfaces to inject
  * @throws {InjectionError}
  * @returns {void}
  */
@@ -71,10 +71,10 @@ export function assertSingleInterfaceOnly(target, attr, descriptor, ifaces)
  * Asserts that the number of formal parameter of the method is equal to
  * or greater than the number of interfaces injected.
  *
- * @param {Function|Object} target the target object or function
- * @param {String} attr the target's attribute
- * @param {Object<PropertyDescriptor>} descriptor the descriptor
- * @param {Array<String|Function>} ifaces the interfaces to inject
+ * @param {Function|Object} target - the target object or function
+ * @param {String} attr - the target's attribute
+ * @param {Object<PropertyDescriptor>} descriptor - the descriptor
+ * @param {Array<String|Function>} ifaces - the interfaces to inject
  * @throws {InjectionError}
  * @returns {void}
  */
@@ -96,10 +96,10 @@ export function assertFormalParametersMatch(
  * Internal helper for throwing an injection error.
  *
  * @param {String} message
- * @param {Function|Object} target the target object or function
- * @param {String} attr the target's attribute
- * @param {Object<PropertyDescriptor>} descriptor the descriptor
- * @param {Array<String|Function>} ifaces the interfaces to inject
+ * @param {Function|Object} target - the target object or function
+ * @param {String} attr - the target's attribute
+ * @param {Object<PropertyDescriptor>} descriptor - the descriptor
+ * @param {Array<String|Function>} ifaces - the interfaces to inject
  * @throws {InjectionError}
  * @returns {void}
  */

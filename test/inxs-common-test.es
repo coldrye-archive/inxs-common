@@ -96,21 +96,6 @@ describe('AbstractStaticPropertyInjector', function ()
             ));
         });
 	});
-
-	describe('#inject()', function ()
-	{
-        it('must throw on initialized property', function ()
-		{
-            // N.B. target is irrelevant here
-            assert.throws(function ()
-			{
-				fixtures.staticPropertyInjector.inject(
-					fixtures.targetClass, fixtures.attr,
-					fixtures.initializedPropertyDescriptor
-				);
-			}, Error);
-        });
-    });
 });
 
 
@@ -155,18 +140,6 @@ describe('AbstractInstancePropertyInjector', function ()
             assert.equal(false, fixtures.instancePropertyInjector.canInject(
                 fixtures.targetInstance, fixtures.attr, fixtures.targetClass
             ));
-        });
-
-        it('must throw on initialized property', function ()
-		{
-            // N.B. target is irrelevant here
-            assert.throws(function ()
-			{
-				fixtures.staticPropertyInjector.canInject(
-					fixtures.targetInstance, fixtures.attr,
-					fixtures.initializedPropertyDescriptor
-				);
-			}, Error);
         });
 
         it('must return true when all requirements are met', function ()

@@ -15,9 +15,16 @@
  */
 
 
+/**
+ * Exception thrown by injectors.
+ */
 export default class InjectionError extends Error
 {
-	constructor(message, data)
+	/**
+	 * @param {String} message
+	 * @param {Object} data - optional data
+	 */
+	constructor(message, data = null)
 	{
 		super(message);
 
