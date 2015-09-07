@@ -1,0 +1,56 @@
+{
+  "name": "inxs-common",
+  "version": "0.0.1",
+  "description": "Collection of abstract base classes for implementing custom injection frameworks for Babel (node, browser).",
+  "license": "Apache-2.0",
+  "homepage": "http://es.coldrye.eu/inxs/inxs-common/",
+  "main": "dist/inxs-common.js",
+  "bugs": {
+    "url": "https://github.com/coldrye-es/inxs-common/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coldrye-es/inxs-common.git"
+  },
+  "author": {
+    "name": "Carsten Klein",
+    "email": "silkentrance@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "cklein",
+      "email": "silkentrance@gmail.com"
+    }
+  ],
+  "scripts": {
+    "clean": "test -f ./package.json && test -d ./dist && rm -Rf ./dist",
+    "build": "test ! -d ./dist && BABEL_ENV='BUILD' babel -d dist src",
+    "test": "BABEL_ENV='TEST' mocha --compilers js:babel/register ./test/*"
+  },
+  "dependencies": {
+    "sprintf-js": "^1.0.3"
+  },
+  "devDependencies": {
+    "babel": "^5.8.21",
+    "mocha": "^2.2.5",
+	"eslint-config-coldrye" : "coldrye-es/eslint-config-coldrye#v0.0.4"
+  },
+  "files": [
+    "dist"
+  ],
+  "babel": {
+    "externalHelpers": true,
+    "optional": [
+      "runtime"
+    ],
+    "env": {
+      "TEST": {
+        "auxiliaryCommentBefore": "istanbul ignore next"
+      },
+      "BUILD": {
+        "compact": true,
+        "comments": false
+      }
+    }
+  }
+}
