@@ -1,0 +1,5 @@
+instrumentation:
+  extensions:
+    - .es
+  excludes: ["build/*.js"]
+
