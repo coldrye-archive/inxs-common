@@ -3,10 +3,6 @@
 import * as common from '../src/inxs-common.es';
 
 
-class IncompleteInjectorImpl extends common.AbstractInjector {
-}
-
-
 class StaticPropertyInjectorImpl extends common.AbstractStaticPropertyInjector {
 }
 
@@ -24,7 +20,7 @@ class InstanceMethodInjectorImpl extends common.AbstractInstanceMethodInjector {
 }
 
 
-export const incompleteInjector = new IncompleteInjectorImpl();
+export const incompleteInjector = new common.AbstractInjector();
 
 
 export const staticPropertyInjector = new StaticPropertyInjectorImpl();
@@ -60,8 +56,20 @@ export const methodDescriptor = {
 };
 
 
+export const singleParamMethodDescriptor = {
+
+    value : function (param) {}
+};
+
+
 export class targetClass {}
 
 
-export const targetInstance = {};
+export const targetInstance = new targetClass();
+
+
+export const testIface = ['testIface'];
+
+
+export const testIfaces = ['testIface1', 'testIface2'];
 

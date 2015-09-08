@@ -23,8 +23,10 @@
     }
   ],
   "scripts": {
-    "clean": "test -f ./package.json && test -d ./dist && rm -Rf ./dist",
-    "build": "test ! -d ./dist && BABEL_ENV='BUILD' babel -d dist src",
+    "clean": "test -f ./package.json && test -d ./dist -o -d ./build -o ./coverage && rm -Rf ./dist ./build ./coverage || true",
+    "build": "test ! -d ./build && BABEL_ENV='BUILD' babel -d build test",
+	"cover": "test -d ./build && babel-istanbul cover _mocha --report html build/*-test.js && konqueror ./coverage/index.html || echo 'must npm run-script build first'",
+    "dist": "test ! -d ./dist && BABEL_ENV='BUILD' babel -d dist src",
     "test": "BABEL_ENV='TEST' mocha --compilers js:babel/register ./test/*"
   },
   "dependencies": {

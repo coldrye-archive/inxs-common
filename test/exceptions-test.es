@@ -15,25 +15,26 @@
  */
 
 
-/**
- * Exception thrown by injectors.
- */
-export class InjectionError extends Error
+import * as assert from 'assert';
+
+import * as fixtures from './fixtures';
+
+import * as exceptions from '../src/exceptions';
+
+
+describe('InjectionError', function ()
 {
-	/**
-	 * @param {String} message
-	 * @param {Object} data - optional data
-	 */
-	constructor(message, data = null)
+	it('get data must return correct value when set', function ()
 	{
-		super(message);
+		const data = 1;
+		const cut = new exceptions.InjectionError('msg', data);
+		assert.equal(cut.data, data);
+	});
 
-		this._data = data;
-	}
-
-	get data()
+	it('get data must return null when not set', function ()
 	{
-		return this._data;
-	}
-}
+		const cut = new exceptions.InjectionError('msg');
+		assert.equal(cut.data, null);
+	});
+});
 

@@ -15,25 +15,23 @@
  */
 
 
-/**
- * Exception thrown by injectors.
- */
-export class InjectionError extends Error
+import * as assert from 'assert';
+
+import * as fixtures from './fixtures';
+
+import * as util from '../src/util';
+
+
+describe('targetName()', function ()
 {
-	/**
-	 * @param {String} message
-	 * @param {Object} data - optional data
-	 */
-	constructor(message, data = null)
+	it('must return name of class', function ()
 	{
-		super(message);
+		assert.equal(util.targetName(fixtures.targetClass), 'targetClass');
+	});
 
-		this._data = data;
-	}
-
-	get data()
+	it('must return name of instance of class', function ()
 	{
-		return this._data;
-	}
-}
+		assert.equal(util.targetName(fixtures.targetInstance), 'targetClass');
+	});
+});
 

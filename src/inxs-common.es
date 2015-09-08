@@ -49,12 +49,11 @@ export class AbstractInjector
 	 * @param {Object<PropertyDescriptor|MethodDescriptor>} descriptor -
      * the descriptor
 	 * @param {Array<String|Function>} ifaces - the interfaces to inject
-	 * @param {Object} options - optional additional parameters
 	 * @throws {InjectionError}
      * @returns {void}
 	 */
 	/*eslint no-unused-vars:0*/
-    inject(target, attr, descriptor, ifaces, options = {})
+    inject(target, attr, descriptor, ifaces)
 	{
         throw new Error(messages.MSG_DERIVED_CLASSES_MUST_OVERRIDE);
     }

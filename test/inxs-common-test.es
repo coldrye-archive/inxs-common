@@ -28,7 +28,7 @@ describe('Incomplete Injector', function ()
 		{
             assert.throws(function ()
 			{
-                fixtures.incompletePropertyInjector.canInject();
+				fixtures.incompleteInjector.canInject();
             }, Error);
         });
     });
@@ -39,7 +39,7 @@ describe('Incomplete Injector', function ()
 		{
             assert.throws(function ()
 			{
-				fixtures.incompletePropertyInjector.inject();
+				fixtures.incompleteInjector.inject();
             }, Error);
         });
     });

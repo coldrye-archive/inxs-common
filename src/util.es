@@ -31,7 +31,7 @@ export function targetName(target)
 	}
 	else
 	{
-		result = target.prototype.constructor.name;
+		result = target.constructor.name;
 	}
 
 	return result;

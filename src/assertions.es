@@ -103,7 +103,6 @@ export function assertFormalParametersMatch(
  * @throws {InjectionError}
  * @returns {void}
  */
-export const _doThrow =
 function _doThrow(message, target, attr, descriptor, ifaces)
 {
 	const targetName = util.targetName(target);
