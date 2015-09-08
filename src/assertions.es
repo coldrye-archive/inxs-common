@@ -95,7 +95,7 @@ export function assertFormalParametersMatch(
 /**
  * Internal helper for throwing an injection error.
  *
- * @param {String} message
+ * @param {String} message - the message format string
  * @param {Function|Object} target - the target object or function
  * @param {String} attr - the target's attribute
  * @param {Object<PropertyDescriptor>} descriptor - the descriptor

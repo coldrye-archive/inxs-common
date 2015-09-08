@@ -4,7 +4,7 @@
   "description": "Collection of abstract base classes for implementing custom injection frameworks for Babel (node, browser).",
   "license": "Apache-2.0",
   "homepage": "http://es.coldrye.eu/inxs-common/",
-  "main": "dist/inxs-common.js",
+  "main": "lib/inxs-common.js",
   "bugs": {
     "url": "https://github.com/coldrye-es/inxs-common/issues"
   },
@@ -23,10 +23,11 @@
     }
   ],
   "scripts": {
-    "clean": "test -f ./package.json && test -d ./dist -o -d ./build -o ./coverage && rm -Rf ./dist ./build ./coverage || true",
+    "clean": "test -f ./package.json && test -d ./lib -o -d ./build -o ./coverage && rm -Rf ./lib ./build ./coverage || true",
     "build": "test ! -d ./build && BABEL_ENV='BUILD' babel -d build test",
+	"lint": "eslint src/*",
     "cover": "test -d ./build && babel-istanbul cover _mocha --report html build/*-test.js && konqueror ./coverage/index.html",
-    "dist": "test ! -d ./dist && BABEL_ENV='DIST' babel -d dist src",
+    "dist": "test ! -d ./lib && BABEL_ENV='DIST' babel -d lib src",
     "test": "BABEL_ENV='TEST' mocha --compilers js:babel/register ./test/*"
   },
   "dependencies": {
@@ -41,7 +42,7 @@
     "mocha": "^2.2.5"
   },
   "files": [
-    "dist"
+    "lib"
   ],
   "babel": {
     "externalHelpers": true,

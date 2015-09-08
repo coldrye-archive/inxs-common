@@ -21,8 +21,9 @@
 export class InjectionError extends Error
 {
 	/**
-	 * @param {String} message
+	 * @param {String} message - the message
 	 * @param {Object} data - optional data
+	 * @returns {void}
 	 */
 	constructor(message, data = null)
 	{
@@ -31,6 +32,11 @@ export class InjectionError extends Error
 		this._data = data;
 	}
 
+	/**
+	 * Gets the data or null.
+	 *
+	 * @returns {Object|Scalar} the data or null
+	 */
 	get data()
 	{
 		return this._data;
