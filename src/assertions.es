@@ -16,7 +16,7 @@
 
 import * as sprintf from 'sprintf-js';
 
-import * as exceptions from './exceptions';
+import InjectionError from './exceptions';
 import * as messages from './messages';
 import * as util from './util';
 
@@ -107,7 +107,7 @@ function _doThrow(message, target, attr, descriptor, ifaces)
 {
 	const targetName = util.targetName(target);
 
-	throw new exceptions.InjectionError(
+	throw new InjectionError(
 		sprintf.sprintf(message, targetName, attr),
 		{
 			target : targetName,

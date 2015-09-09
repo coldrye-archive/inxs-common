@@ -18,7 +18,7 @@
 /**
  * Exception thrown by injectors.
  */
-export class InjectionError extends Error
+export default class InjectionError extends Error
 {
 	/**
 	 * @param {String} message - the message

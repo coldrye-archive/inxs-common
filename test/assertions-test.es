@@ -20,7 +20,7 @@ import * as assert from 'assert';
 import * as fixtures from './fixtures';
 
 import * as assertions from '../src/assertions';
-import * as exceptions from '../src/exceptions';
+import InjectionError from '../src/exceptions';
 
 
 describe('assertNotInitialized()', function ()
@@ -106,6 +106,6 @@ describe('assertFormalParametersMatch()', function ()
  */
 function customErrorCheck(error)
 {
-	return error instanceof exceptions.InjectionError;
+	return error instanceof InjectionError;
 }
 
