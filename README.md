@@ -54,7 +54,7 @@ The current situation with the available task runners is so that Gulp is not my
 cup of tea and that Grunt lacks active development. Other task runners simply
 do not do the trick or are way too specialized for my purposes.
 
-Also, see (1) under resources below for my overall motivation. Opposed to the
+Also, see (2) under resources below for my overall motivation. Opposed to the
 view expressed by the author, though, I even refrain from using **npm** for
 my build process as this also turned out to be an actual pain in the arse.
 
