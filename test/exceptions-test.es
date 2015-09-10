@@ -17,8 +17,6 @@
 
 import * as assert from 'assert';
 
-import * as fixtures from './fixtures';
-
 import InjectionError from '../src/exceptions';
 
 

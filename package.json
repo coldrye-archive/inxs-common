@@ -23,17 +23,19 @@
     }
   ],
   "scripts": {
-    "clean": "test -f ./package.json && test -d ./lib -o -d ./build -o ./coverage && rm -Rf ./lib ./build ./coverage || true",
-    "build": "test ! -d ./build && BABEL_ENV='BUILD' babel -d build test",
-	"lint": "eslint src/*",
-    "cover": "test -d ./build && babel-istanbul cover _mocha --report html build/*-test.js && konqueror ./coverage/index.html",
-    "dist": "test ! -d ./lib && BABEL_ENV='DIST' babel -d lib src",
-    "test": "BABEL_ENV='TEST' mocha --compilers js:babel/register ./test/*"
+    "clean": "make clean",
+    "coverage": "make coverage",
+	"dist": "make dist",
+    "lint": "make lint",
+    "test": "make test"
   },
   "dependencies": {
     "sprintf-js": "^1.0.3"
   },
   "devDependencies": {
+    "babel-runtime": "^5.8.20"
+  },
+  "globalDevDependencies": {
     "babel": "^5.8.21",
     "babel-eslint": "^4.1.1",
     "babel-istanbul": "^0.3.20",

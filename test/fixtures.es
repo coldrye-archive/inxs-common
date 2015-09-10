@@ -58,6 +58,7 @@ export const methodDescriptor = {
 
 export const singleParamMethodDescriptor = {
 
+	/*eslint no-unused-vars:0*/
     value : function (param) {}
 };
 
