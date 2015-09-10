@@ -3,7 +3,7 @@
 
 BUILD_DIR    = ./build
 COVERAGE_DIR = ./coverage
-DIST_DIR     = ./dist
+DIST_DIR     = ./lib
 SRC_DIR      = ./src
 TEST_DIR     = ./test
 

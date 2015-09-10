@@ -31,7 +31,10 @@ describe('targetName()', function ()
 
 	it('must return name of instance of class', function ()
 	{
-		assert.equal(util.targetName(fixtures.targetInstance), 'targetClass');
+		assert.equal(
+			util.targetName(fixtures.targetInstance),
+			'instanceOf targetClass'
+		);
 	});
 });
 

@@ -31,7 +31,7 @@ export function targetName(target)
 	}
 	else
 	{
-		result = target.constructor.name;
+		result = 'instanceOf ' + target.constructor.name;
 	}
 
 	return result;
