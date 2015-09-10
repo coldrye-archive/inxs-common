@@ -30,10 +30,8 @@
     "test": "make test"
   },
   "dependencies": {
+    "babel-runtime": "^5.8.20",
     "sprintf-js": "^1.0.3"
-  },
-  "devDependencies": {
-    "babel-runtime": "^5.8.20"
   },
   "globalDevDependencies": {
     "babel": "^5.8.21",
