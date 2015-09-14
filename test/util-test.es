@@ -22,19 +22,16 @@ import * as fixtures from './fixtures';
 import * as util from '../src/util';
 
 
-describe('targetName()', function ()
+describe('className()', function ()
 {
 	it('must return name of class', function ()
 	{
-		assert.equal(util.targetName(fixtures.targetClass), 'targetClass');
+		assert.equal(util.className(fixtures.targetClass), 'targetClass');
 	});
 
 	it('must return name of instance of class', function ()
 	{
-		assert.equal(
-			util.targetName(fixtures.targetInstance),
-			'instanceOf targetClass'
-		);
+		assert.equal(util.className(fixtures.targetInstance), 'targetClass');
 	});
 });
 

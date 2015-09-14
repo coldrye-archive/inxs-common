@@ -16,12 +16,12 @@
 
 
 /**
- * Returns the name of the injection target.
+ * Returns the class name of the specified target.
  *
  * @param {Function|Object} target - the target object or function
- * @returns {String} the target's name
+ * @returns {String} the target's class name
  */
-export function targetName(target)
+export function className(target)
 {
 	let result;
 
@@ -31,7 +31,7 @@ export function targetName(target)
 	}
 	else
 	{
-		result = 'instanceOf ' + target.constructor.name;
+		result = target.constructor.name;
 	}
 
 	return result;

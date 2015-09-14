@@ -105,12 +105,12 @@ export function assertFormalParametersMatch(
  */
 function _doThrow(message, target, attr, descriptor, ifaces)
 {
-	const targetName = util.targetName(target);
+	const className = util.className(target);
 
 	throw new InjectionError(
-		sprintf.sprintf(message, targetName, attr),
+		sprintf.sprintf(message, className, attr),
 		{
-			target : targetName,
+			target : className,
 			attr : attr,
 			descriptor : descriptor,
 			interfaces : ifaces
