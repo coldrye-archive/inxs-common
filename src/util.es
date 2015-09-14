@@ -16,7 +16,8 @@
 
 
 /**
- * Returns the class name of the specified target.
+ * Returns the class name of the specified target that is either a
+ * class (function) or an instance object.
  *
  * @param {Function|Object} target - the target object or function
  * @returns {String} the target's class name
