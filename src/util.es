@@ -15,6 +15,9 @@
  */
 
 
+import * as messages from './messages';
+
+
 /**
  * Returns the class name of the specified target that is either a
  * class (function) or an instance object.
@@ -25,6 +28,11 @@
 export function className(target)
 {
 	let result;
+
+	if (!target)
+	{
+		throw new TypeError(messages.MSG_MISSING_TARGET);
+	}
 
 	if (typeof target == 'function')
 	{

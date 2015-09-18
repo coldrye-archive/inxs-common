@@ -24,6 +24,17 @@ import * as util from '../src/util';
 
 describe('className()', function ()
 {
+	it('must throw on invalid target', function ()
+	{
+		assert.throws(function () {
+			util.className(null);
+		}, TypeError);
+
+		assert.throws(function () {
+			util.className(undefined);
+		}, TypeError);
+	});
+
 	it('must return name of class', function ()
 	{
 		assert.equal(util.className(fixtures.targetClass), 'targetClass');
