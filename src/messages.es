@@ -32,3 +32,6 @@ export const MSG_FORMAL_PARAMETERS_DO_NOT_MATCH =
     'unable to inject more interfaces than there are formal parameters ' +
 	'into method "%s" of target "%s"';
 
+
+export const MSG_MISSING_TARGET = 'target must be object or function';
+
