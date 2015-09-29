@@ -1,48 +1,135 @@
-# TODO:fileheader
+# vim: noexpandtab:ts=4:sw=4
+
+# Copyright 2015 Carsten Klein
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
 
-BUILD_DIR    = ./build
-COVERAGE_DIR = ./coverage
-DIST_DIR     = ./lib
-SRC_DIR      = ./src
-TEST_DIR     = ./test
+build_dir       = ./build
+build_cover_dir = $(build_dir)/cover
+build_doc_dir   = $(build_dir)/doc
+build_src_dir   = $(build_dir)/src
+build_test_dir  = $(build_dir)/test
+dist_dir        = ./lib
+src_dir         = ./src
+test_dir        = ./test
+watchdog        = $(build_dir)/watchdog
 
 
-.PHONY: build clean clean-build clean-coverage clean-dist coverage dist lint test
+.PHONY: build build-cover build-doc build-src build-test \
+		check-cover clean clean-build clean-cover clean-dist \
+        cover deps dist lint test test-run \
+        watch watch-run
 
 
-build: clean-build
-	BABEL_ENV="BUILD" babel -d $(BUILD_DIR) $(TEST_DIR)
+build: build-src build-test
 
 
-clean: clean-build clean-coverage clean-dist
+build-cover:
+	@echo "gathering coverage data..."
+	@babel-istanbul cover _mocha $(build_dir)/test/*
+
+
+build-doc: $(src_dir)/*
+	@echo "building docs..."
+	@esdoc -c esdoc.json >/dev/null
+
+
+build-src: $(build_src_dir)/*
+
+
+build-test: $(build_test_dir)/*
+
+
+check-cover: $(build_cover_dir)
+	@echo "checking coverage..."
+	@babel-istanbul check-coverage
+
+
+clean: clean-build clean-dist
 
 
 clean-build:
-	@-rm -Rf $(BUILD_DIR)
+	@echo "cleaning build..."
+	@-rm -Rf $(build_dir)
 
 
-clean-coverage:
-	@-rm -Rf $(COVERAGE_DIR)
+clean-cover:
+	@echo "cleaning coverage data..."
+	@-rm -Rf $(build_cover_dir)
 
 
 clean-dist:
-	@-rm -Rf $(DIST_DIR)
+	@echo "cleaning dist..."
+	@-rm -Rf $(dist_dir)
 
 
-coverage: test build clean-coverage
-	babel-istanbul cover _mocha --report html $(BUILD_DIR)/*
+clean-doc:
+	@echo "cleaning docs..."
+	@-rm -Rf $(build_doc_dir)
 
 
-dist: coverage clean-dist
-	BABEL_ENV="DIST" babel -d $(DIST_DIR) $(SRC_DIR)
+cover: clean-cover build build-cover check-cover
 
 
-# TODO lint changed files only
-lint:
-	eslint $(SRC_DIR)/* $(TEST_DIR)/*
+deps:
+	exit 1
+#	@-sudo npm -g install babel babel-istanbul eslint mocha coldrye-es/eslint-config-coldrye
 
 
-test: lint
-	BABEL_ENV="TEST" mocha --compilers js:babel/register $(TEST_DIR)/*
+dist: clean-dist test cover
+	@echo "creating distribution..."
+	@BABEL_ENV="DIST" babel -d $(dist_dir) $(src_dir) >/dev/null
+
+
+doc: clean-doc build-doc
+
+
+lint: $(src_dir)/* $(test_dir)/*
+	@echo "linting..."
+	@eslint $?
+
+
+test: lint test-run 
+
+
+test-run: $(test_dir)/*
+	@echo "running tests..."
+	@BABEL_ENV="TEST" mocha --compilers js:babel/register $?
+
+
+watch:
+	@echo "watching... (CTRL-C to abort)"
+	@-mkdir $(build_dir)
+	@while true; do make --quiet watch-run; sleep 1; done
+
+
+watch-run: $(watchdog)
+	@touch $?
+
+
+$(watchdog): $(src_dir)/* $(test_dir)/* $(build_src_dir)/* $(build_test_dir)/*
+	@-make test
+	@echo "watching... (CTRL-C to abort)"
+
+
+$(build_src_dir)/*: $(src_dir)/*
+	@echo "building sources..."
+	@-mkdir -p $(build_src_dir)
+	@cp $? $(build_src_dir)
+
+
+$(build_test_dir)/*: $(test_dir)/*
+	@echo "building tests..."
+	@BABEL_ENV="BUILD" babel -d $(build_dir) $? >/dev/null
 
