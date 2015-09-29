@@ -45,8 +45,6 @@ have the following tools installed.
 
  - GNU Make
 
-**Do not** install **babel-istanbul** locally as it tends to break things.
-
 
 ## Why GNU Make and not Grunt or Gulp or ...?
 
