@@ -22,27 +22,28 @@ import * as messages from './messages';
  * Returns the class name of the specified target that is either a
  * class (function) or an instance object.
  *
+ * @protected
  * @param {Function|Object} target - the target object or function
  * @returns {String} the target's class name
  */
 export function className(target)
 {
-	let result;
+    let result;
 
-	if (!target)
-	{
-		throw new TypeError(messages.MSG_MISSING_TARGET);
-	}
+    if (!target)
+    {
+        throw new TypeError(messages.MSG_MISSING_TARGET);
+    }
 
-	if (typeof target == 'function')
-	{
-		result = target.name;
-	}
-	else
-	{
-		result = target.constructor.name;
-	}
+    if (typeof target == 'function')
+    {
+        result = target.name;
+    }
+    else
+    {
+        result = target.constructor.name;
+    }
 
-	return result;
+    return result;
 }
 

@@ -15,23 +15,43 @@
  */
 
 
+/**
+ * @protected
+ * @type {string}
+ */
 export const MSG_DERIVED_CLASSES_MUST_OVERRIDE =
     'derived classes must override this';
 
 
+/**
+ * @protected
+ * @type {string}
+ */
 export const MSG_ONE_IFACE_ONLY =
     'must specify one interface only when injecting into property "%s" ' +
 	'of target "%s"';
 
 
+/**
+ * @protected
+ * @type {string}
+ */
 export const MSG_UNABLE_TO_INJECT_INITIALIZED =
     'unable to inject into initialized property "%s" of target "%s"';
 
 
+/**
+ * @protected
+ * @type {string}
+ */
 export const MSG_FORMAL_PARAMETERS_DO_NOT_MATCH =
     'unable to inject more interfaces than there are formal parameters ' +
 	'into method "%s" of target "%s"';
 
 
+/**
+ * @protected
+ * @type {string}
+ */
 export const MSG_MISSING_TARGET = 'target must be object or function';
 

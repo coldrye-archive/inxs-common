@@ -17,12 +17,14 @@
 
 /**
  * Exception thrown by injectors.
+ *
+ * @public
  */
 export default class InjectionError extends Error
 {
 	/**
 	 * @param {String} message - the message
-	 * @param {Object} data - optional data
+	 * @param {Object|Simple} data - optional data
 	 * @returns {void}
 	 */
 	constructor(message, data = null)
@@ -35,7 +37,7 @@ export default class InjectionError extends Error
 	/**
 	 * Gets the data or null.
 	 *
-	 * @returns {Object|Scalar} the data or null
+	 * @type {Object|Simple}
 	 */
 	get data()
 	{

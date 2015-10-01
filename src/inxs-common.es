@@ -23,15 +23,15 @@ import * as messages from './messages';
  * The abstract class AbstractInjector models the root of a hierarchy of
  * classes.
  *
- * TODO:document
+ * @public
  */
 export class AbstractInjector
 {
 	/**
-	 * TODO:document
+	 * Checks whether this is able to handle the injection request.
 	 *
-	 * @param {Function|Object} target - the target object or function
-	 * @param {String} attr - the target's attribute
+	 * @param {function|Object} target - the target object or function
+	 * @param {string} attr - the target's attribute
 	 * @param {Object<PropertyDescriptor|MethodDescriptor>} descriptor -
      * the descriptor
 	 * @returns {Boolean}
@@ -43,13 +43,14 @@ export class AbstractInjector
     }
 
 	/**
-	 * TODO:document
+	 * Instructs this to inject the specified interfaces ifaces into
+     * the specified target's attribute attr.
 	 *
-	 * @param {Function|Object} target - the target object or function
-	 * @param {String} attr - the target's attribute
+	 * @param {function|Object} target - the target object or function
+	 * @param {string} attr - the target's attribute
 	 * @param {Object<PropertyDescriptor|MethodDescriptor>} descriptor -
      * the descriptor
-	 * @param {Array<String|Function>} ifaces - the interfaces to inject
+	 * @param {Array<string|function>} ifaces - the interfaces to inject
 	 * @throws {InjectionError}
      * @returns {void}
 	 */
@@ -64,6 +65,8 @@ export class AbstractInjector
 /**
  * The abstract class AbstractStaticPropertyInjector models the root of a
  * hierarchy of classes representing static property injectors.
+ *
+ * @public
  */
 export class AbstractStaticPropertyInjector extends AbstractInjector
 {
@@ -80,6 +83,8 @@ export class AbstractStaticPropertyInjector extends AbstractInjector
 /**
  * The abstract class AbstractInstancePropertyInjector models the root of a
  * hierarchy of classes representing instance property injectors.
+ *
+ * @public
  */
 export class AbstractInstancePropertyInjector extends AbstractInjector
 {
@@ -97,6 +102,8 @@ export class AbstractInstancePropertyInjector extends AbstractInjector
 /**
  * The abstract class AbstractStaticMethodInjector models the root of a
  * hierarchy of classes representing static method level parameter injectors.
+ *
+ * @public
  */
 export class AbstractStaticMethodInjector extends AbstractInjector
 {
@@ -114,6 +121,8 @@ export class AbstractStaticMethodInjector extends AbstractInjector
 /**
  * The abstract class AbstractInstanceMethodInjector models the root of a
  * hierarchy of classes representing instance method level parameter injectors.
+ *
+ * @public
  */
 export class AbstractInstanceMethodInjector extends AbstractInjector
 {

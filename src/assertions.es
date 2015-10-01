@@ -25,6 +25,7 @@ import * as util from './util';
  * Asserts that the specified property descriptor does not define an
  * initializer.
  *
+ * @protected
  * @param {Function|Object} target - the target object or function
  * @param {String} attr - the target's attribute
  * @param {Object<PropertyDescriptor>} descriptor - the descriptor
@@ -48,6 +49,7 @@ export function assertNotInitialized(target, attr, descriptor, ifaces)
 /**
  * Asserts that the user tries to inject a single interface only.
  *
+ * @protected
  * @param {Function|Object} target - the target object or function
  * @param {String} attr - the target's attribute
  * @param {Object<PropertyDescriptor>} descriptor - the descriptor
@@ -71,6 +73,7 @@ export function assertSingleInterfaceOnly(target, attr, descriptor, ifaces)
  * Asserts that the number of formal parameter of the method is equal to
  * or greater than the number of interfaces injected.
  *
+ * @protected
  * @param {Function|Object} target - the target object or function
  * @param {String} attr - the target's attribute
  * @param {Object<PropertyDescriptor>} descriptor - the descriptor
@@ -95,6 +98,7 @@ export function assertFormalParametersMatch(
 /**
  * Internal helper for throwing an injection error.
  *
+ * @private
  * @param {String} message - the message format string
  * @param {Function|Object} target - the target object or function
  * @param {String} attr - the target's attribute
