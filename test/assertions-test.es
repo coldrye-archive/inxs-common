@@ -33,7 +33,7 @@ describe('assertNotInitialized()', function ()
 				fixtures.targetInstance, fixtures.attr,
 				fixtures.initializedPropertyDescriptor, fixtures.testIface
 			);
-		}, customErrorCheck);
+		}, InjectionError);
 	});
 
 	it('must not throw on non initialized instance property', function ()
@@ -59,7 +59,7 @@ describe('assertSingleInterface()', function ()
 				fixtures.targetInstance, fixtures.attr,
 				fixtures.propertyDescriptor, fixtures.testIfaces
 			);
-		}, customErrorCheck);
+		}, InjectionError);
 	});
 
 	it('must not throw on single interface for instance property', function ()
@@ -85,7 +85,7 @@ describe('assertFormalParametersMatch()', function ()
 				fixtures.targetInstance, fixtures.attr,
 				fixtures.methodDescriptor, fixtures.testIface
 			);
-		}, customErrorCheck);
+		}, InjectionError);
 	});
 
 	it('must not throw on matching parameters for method', function ()
@@ -99,13 +99,4 @@ describe('assertFormalParametersMatch()', function ()
 		});
 	});
 });
-
-
-/*
- * somehow assert.throws fails its instanceof check
- */
-function customErrorCheck(error)
-{
-	return error instanceof InjectionError;
-}
 
