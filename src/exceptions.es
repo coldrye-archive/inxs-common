@@ -23,8 +23,8 @@
 export default class InjectionError extends Error
 {
 	/**
-	 * @param {String} message - the message
-	 * @param {Object|Simple} data - optional data
+	 * @param {string} message - the message
+	 * @param {?(Object|Simple)} data - optional data
 	 * @returns {void}
 	 */
 	constructor(message, data = null)

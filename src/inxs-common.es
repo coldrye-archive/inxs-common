@@ -20,6 +20,21 @@ import * as messages from './messages';
 
 
 /**
+ * The property descriptor provided by the babel runtime.
+ *
+ * @typedef {Object} PropertyDescriptor
+ */
+
+
+/**
+ * The method descriptor provided by the babel runtime.
+ *
+ * @typedef {Object} MethodDescriptor
+ * @property {function} value the method
+ */
+
+
+/**
  * The abstract class AbstractInjector models the root of a hierarchy of
  * classes.
  *
@@ -32,9 +47,9 @@ export class AbstractInjector
 	 *
 	 * @param {function|Object} target - the target object or function
 	 * @param {string} attr - the target's attribute
-	 * @param {Object<PropertyDescriptor|MethodDescriptor>} descriptor -
+	 * @param {Object<PropertyDescriptor,MethodDescriptor>} descriptor -
      * the descriptor
-	 * @returns {Boolean}
+	 * @returns {boolean}
 	 */
 	/*eslint no-unused-vars:0*/
     canInject(target, attr, descriptor)
@@ -48,9 +63,9 @@ export class AbstractInjector
 	 *
 	 * @param {function|Object} target - the target object or function
 	 * @param {string} attr - the target's attribute
-	 * @param {Object<PropertyDescriptor|MethodDescriptor>} descriptor -
+	 * @param {Object<PropertyDescriptor,MethodDescriptor>} descriptor -
      * the descriptor
-	 * @param {Array<string|function>} ifaces - the interfaces to inject
+	 * @param {Array<string,function>} ifaces - the interfaces to inject
 	 * @throws {InjectionError}
      * @returns {void}
 	 */

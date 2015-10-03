@@ -23,8 +23,8 @@ import * as messages from './messages';
  * class (function) or an instance object.
  *
  * @protected
- * @param {Function|Object} target - the target object or function
- * @returns {String} the target's class name
+ * @param {function|Object} target - the target object or function
+ * @returns {string} the target's class name
  */
 export function className(target)
 {

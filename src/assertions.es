@@ -26,10 +26,10 @@ import * as util from './util';
  * initializer.
  *
  * @protected
- * @param {Function|Object} target - the target object or function
- * @param {String} attr - the target's attribute
+ * @param {function|Object} target - the target object or function
+ * @param {string} attr - the target's attribute
  * @param {Object<PropertyDescriptor>} descriptor - the descriptor
- * @param {Array<String|Function>} ifaces - the interfaces to inject
+ * @param {Array<string,function>} ifaces - the interfaces to inject
  * @throws {InjectionError}
  * @returns {void}
  */
@@ -50,10 +50,10 @@ export function assertNotInitialized(target, attr, descriptor, ifaces)
  * Asserts that the user tries to inject a single interface only.
  *
  * @protected
- * @param {Function|Object} target - the target object or function
- * @param {String} attr - the target's attribute
+ * @param {function|Object} target - the target object or function
+ * @param {string} attr - the target's attribute
  * @param {Object<PropertyDescriptor>} descriptor - the descriptor
- * @param {Array<String|Function>} ifaces - the interfaces to inject
+ * @param {Array<string,function>} ifaces - the interfaces to inject
  * @throws {InjectionError}
  * @returns {void}
  */
@@ -74,10 +74,10 @@ export function assertSingleInterfaceOnly(target, attr, descriptor, ifaces)
  * or greater than the number of interfaces injected.
  *
  * @protected
- * @param {Function|Object} target - the target object or function
- * @param {String} attr - the target's attribute
+ * @param {function|Object} target - the target object or function
+ * @param {string} attr - the target's attribute
  * @param {Object<PropertyDescriptor>} descriptor - the descriptor
- * @param {Array<String|Function>} ifaces - the interfaces to inject
+ * @param {Array<string,function>} ifaces - the interfaces to inject
  * @throws {InjectionError}
  * @returns {void}
  */
@@ -99,11 +99,11 @@ export function assertFormalParametersMatch(
  * Internal helper for throwing an injection error.
  *
  * @private
- * @param {String} message - the message format string
- * @param {Function|Object} target - the target object or function
- * @param {String} attr - the target's attribute
+ * @param {string} message - the message format string
+ * @param {function|Object} target - the target object or function
+ * @param {string} attr - the target's attribute
  * @param {Object<PropertyDescriptor>} descriptor - the descriptor
- * @param {Array<String|Function>} ifaces - the interfaces to inject
+ * @param {Array<string,function>} ifaces - the interfaces to inject
  * @throws {InjectionError}
  * @returns {void}
  */
