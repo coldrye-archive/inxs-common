@@ -22,13 +22,6 @@
       "email": "silkentrance@gmail.com"
     }
   ],
-  "scripts": {
-    "clean": "make clean",
-    "coverage": "make coverage",
-	"dist": "make dist",
-    "lint": "make lint",
-    "test": "make test"
-  },
   "dependencies": {
     "babel-runtime": "^5.8.20",
     "sprintf-js": "^1.0.3"

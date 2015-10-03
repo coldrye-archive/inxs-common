@@ -28,7 +28,7 @@ watchdog        = $(build_dir)/watchdog
 
 .PHONY: build build-cover build-doc build-src build-test \
 		check-cover clean clean-build clean-cover clean-dist \
-        cover deps dist lint test test-run \
+        cover deps deps-global dist lint test test-run \
         watch watch-run
 
 
@@ -42,7 +42,7 @@ build-cover:
 
 build-doc: $(src_dir)/*
 	@echo "building docs..."
-	@esdoc -c esdoc.json >/dev/null
+	@esdoc -c .esdoc.json >/dev/null
 
 
 build-src: $(build_src_dir)/*
@@ -83,8 +83,26 @@ cover: clean-cover build build-cover check-cover
 
 
 deps:
-	exit 1
-#	@-sudo npm -g install babel babel-istanbul eslint mocha coldrye-es/eslint-config-coldrye
+	@echo "installing local (dev) dependencies..."
+	@npm install 
+
+
+deps-global:
+	@echo "installing global dev dependencies (sudo)..."
+	@sudo npm -g install $(shell node -e " \
+		var pkg = require('./package.json'); \
+		var deps = []; \
+        for (var key in pkg.globalDevDependencies) { \
+			var version = pkg.globalDevDependencies[key]; \
+			if (version.indexOf('/') != -1) { \
+				deps.push(version); \
+			} \
+			else { \
+				deps.push(key + '@' + version); \
+			} \
+		} \
+		console.log(deps.join(' ')); \
+    ")
 
 
 dist: clean-dist test cover

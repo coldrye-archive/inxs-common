@@ -9,7 +9,7 @@
     "builtinExternal": true,
     "index": "./README.md",
     "package": "./package.json",
-    "coverage": false,
+    "coverage": true,
     "includeSource": true,
     "test": {
         "type": "mocha",

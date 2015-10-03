@@ -63,7 +63,7 @@ or Gulp would have made things easier or even more complex.
 ## Building
 
 In order to build this from source, you need a working Bash. See the Makefile
-or package.json#scripts for the available targets.
+for the available targets.
 
 
 ## Installation
