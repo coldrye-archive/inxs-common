@@ -2,7 +2,7 @@
     "source": "./src",
     "destination": "build/doc",
     "includes": ["\\.es$"],
-    "access": ["public", "protected"],
+    "access": ["public"],
     "autoPrivate": true,
     "unexportIdentifier": false,
     "undocumentIdentifier": true,
