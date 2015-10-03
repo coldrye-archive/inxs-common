@@ -20,16 +20,19 @@ import * as assert from 'assert';
 import InjectionError from '../src/exceptions';
 
 
-describe('InjectionError', function ()
+describe('InjectionError',
+function ()
 {
-	it('get data must return correct value when set', function ()
+	it('get data must return correct value when set',
+    function ()
 	{
 		const data = 1;
 		const cut = new InjectionError('msg', data);
 		assert.equal(cut.data, data);
 	});
 
-	it('get data must return null when not set', function ()
+	it('get data must return null when not set',
+    function ()
 	{
 		const cut = new InjectionError('msg');
 		assert.equal(cut.data, null);

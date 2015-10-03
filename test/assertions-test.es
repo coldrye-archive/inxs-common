@@ -23,11 +23,14 @@ import * as assertions from '../src/assertions';
 import InjectionError from '../src/exceptions';
 
 
-describe('assertNotInitialized()', function ()
+describe('assertNotInitialized()',
+function ()
 {
-	it('must throw on initialized property', function ()
+	it('must throw on initialized property',
+    function ()
 	{
-		assert.throws(function ()
+		assert.throws(
+        function ()
 		{
 			assertions.assertNotInitialized(
 				fixtures.targetInstance, fixtures.attr,
@@ -36,9 +39,11 @@ describe('assertNotInitialized()', function ()
 		}, InjectionError);
 	});
 
-	it('must not throw on non initialized instance property', function ()
+	it('must not throw on non initialized instance property',
+    function ()
 	{
-		assert.doesNotThrow(function ()
+		assert.doesNotThrow(
+        function ()
 		{
 			assertions.assertNotInitialized(
 				fixtures.targetInstance, fixtures.attr,
@@ -49,11 +54,14 @@ describe('assertNotInitialized()', function ()
 });
 
 
-describe('assertSingleInterface()', function ()
+describe('assertSingleInterface()',
+function ()
 {
-	it('must throw on multiple interfaces for instance property', function ()
+	it('must throw on multiple interfaces for instance property',
+    function ()
 	{
-		assert.throws(function ()
+		assert.throws(
+        function ()
 		{
 			assertions.assertSingleInterfaceOnly(
 				fixtures.targetInstance, fixtures.attr,
@@ -62,9 +70,11 @@ describe('assertSingleInterface()', function ()
 		}, InjectionError);
 	});
 
-	it('must not throw on single interface for instance property', function ()
+	it('must not throw on single interface for instance property',
+    function ()
 	{
-		assert.doesNotThrow(function ()
+		assert.doesNotThrow(
+        function ()
 		{
 			assertions.assertSingleInterfaceOnly(
 				fixtures.targetInstance, fixtures.attr,
@@ -75,11 +85,14 @@ describe('assertSingleInterface()', function ()
 });
 
 
-describe('assertFormalParametersMatch()', function ()
+describe('assertFormalParametersMatch()',
+function ()
 {
-	it('must throw on non matching parameters for method', function ()
+	it('must throw on non matching parameters for method',
+    function ()
 	{
-		assert.throws(function ()
+		assert.throws(
+        function ()
 		{
 			assertions.assertFormalParametersMatch(
 				fixtures.targetInstance, fixtures.attr,
@@ -88,9 +101,11 @@ describe('assertFormalParametersMatch()', function ()
 		}, InjectionError);
 	});
 
-	it('must not throw on matching parameters for method', function ()
+	it('must not throw on matching parameters for method',
+    function ()
 	{
-		assert.doesNotThrow(function ()
+		assert.doesNotThrow(
+        function ()
 		{
 			assertions.assertFormalParametersMatch(
 				fixtures.targetInstance, fixtures.attr,

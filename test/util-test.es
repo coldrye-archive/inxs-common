@@ -22,25 +22,31 @@ import * as fixtures from './fixtures';
 import * as util from '../src/util';
 
 
-describe('className()', function ()
+describe('className()',
+function ()
 {
-	it('must throw on invalid target', function ()
+	it('must throw on invalid target',
+    function ()
 	{
-		assert.throws(function () {
+		assert.throws(
+        function () {
 			util.className(null);
 		}, TypeError);
 
-		assert.throws(function () {
+		assert.throws(
+        function () {
 			util.className(undefined);
 		}, TypeError);
 	});
 
-	it('must return name of class', function ()
+	it('must return name of class',
+    function ()
 	{
 		assert.equal(util.className(fixtures.targetClass), 'targetClass');
 	});
 
-	it('must return name of instance of class', function ()
+	it('must return name of instance of class',
+    function ()
 	{
 		assert.equal(util.className(fixtures.targetInstance), 'targetClass');
 	});
