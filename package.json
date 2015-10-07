@@ -1,6 +1,6 @@
 {
   "name": "inxs-common",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Collection of abstract base classes for implementing custom injection frameworks for Babel (node, browser).",
   "license": "Apache-2.0",
   "homepage": "http://es.coldrye.eu/inxs-common/",
