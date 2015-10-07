@@ -89,7 +89,8 @@ export class AbstractStaticPropertyInjector extends AbstractInjector
         return typeof target == 'function' &&
 			descriptor !== null &&
 			typeof descriptor == 'object' &&
-			typeof attr == 'string';
+			typeof attr == 'string' &&
+            !descriptor.value;
     }
 }
 
@@ -108,7 +109,8 @@ export class AbstractInstancePropertyInjector extends AbstractInjector
 			typeof target == 'object' &&
 			descriptor !== null &&
 			typeof descriptor == 'object' &&
-			typeof attr == 'string';
+			typeof attr == 'string' &&
+            !descriptor.value;
 	}
 }
 

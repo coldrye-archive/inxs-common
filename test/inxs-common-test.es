@@ -98,6 +98,10 @@ function ()
             assert.equal(false, fixtures.staticPropertyInjector.canInject(
                 fixtures.targetClass, fixtures.attr, fixtures.targetClass
             ));
+
+            assert.equal(false, fixtures.staticPropertyInjector.canInject(
+                fixtures.targetClass, fixtures.attr, fixtures.methodDescriptor
+            ));
         });
 
         it('must return true when all requirements are met',
@@ -158,6 +162,11 @@ function ()
             assert.equal(false, fixtures.instancePropertyInjector.canInject(
                 fixtures.targetInstance, fixtures.attr, fixtures.targetClass
             ));
+
+            assert.equal(false, fixtures.instancePropertyInjector.canInject(
+                fixtures.targetInstance, fixtures.attr,
+                fixtures.methodDescriptor
+            ));
         });
 
         it('must return true when all requirements are met',
@@ -207,15 +216,19 @@ function ()
         function ()
 		{
             assert.equal(false, fixtures.staticMethodInjector.canInject(
-                fixtures.targetInstance, fixtures.attr, undefined
+                fixtures.targetClass, fixtures.attr, undefined
             ));
 
             assert.equal(false, fixtures.staticMethodInjector.canInject(
-                fixtures.targetInstance, fixtures.attr, null
+                fixtures.targetClass, fixtures.attr, null
             ));
 
             assert.equal(false, fixtures.staticMethodInjector.canInject(
-                fixtures.targetInstance, fixtures.attr, fixtures.targetClass
+                fixtures.targetClass, fixtures.attr, fixtures.targetClass
+            ));
+
+            assert.equal(false, fixtures.staticMethodInjector.canInject(
+                fixtures.targetClass, fixtures.attr, fixtures.propertyDescriptor
             ));
         });
 
@@ -223,15 +236,15 @@ function ()
         function ()
 		{
             assert.equal(false, fixtures.staticMethodInjector.canInject(
-                fixtures.targetInstance, fixtures.attr, {}
+                fixtures.targetClass, fixtures.attr, {}
             ));
 
             assert.equal(false, fixtures.staticMethodInjector.canInject(
-                fixtures.targetInstance, fixtures.attr, { value : null }
+                fixtures.targetClass, fixtures.attr, { value : null }
             ));
 
             assert.equal(false, fixtures.staticMethodInjector.canInject(
-                fixtures.targetInstance, fixtures.attr, { value : {} }
+                fixtures.targetClass, fixtures.attr, { value : {} }
             ));
         });
 
@@ -289,6 +302,11 @@ function ()
 
             assert.equal(false, fixtures.instanceMethodInjector.canInject(
                 fixtures.targetInstance, fixtures.attr, fixtures.targetClass
+            ));
+
+            assert.equal(false, fixtures.staticMethodInjector.canInject(
+                fixtures.targetInstance, fixtures.attr,
+                fixtures.propertyDescriptor
             ));
         });
 
