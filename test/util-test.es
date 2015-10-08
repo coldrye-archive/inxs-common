@@ -15,7 +15,7 @@
  */
 
 
-import * as assert from 'assert';
+import * as assert from 'esaver';
 
 import * as fixtures from './fixtures';
 
@@ -28,6 +28,7 @@ function ()
 	it('must throw on invalid target',
     function ()
 	{
+        assert.expect(2);
 		assert.throws(
         function () {
 			util.className(null);
@@ -42,12 +43,14 @@ function ()
 	it('must return name of class',
     function ()
 	{
+        assert.expect(1);
 		assert.equal(util.className(fixtures.targetClass), 'targetClass');
 	});
 
 	it('must return name of instance of class',
     function ()
 	{
+        assert.expect(1);
 		assert.equal(util.className(fixtures.targetInstance), 'targetClass');
 	});
 });

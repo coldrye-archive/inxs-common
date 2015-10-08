@@ -15,7 +15,7 @@
  */
 
 
-import * as assert from 'assert';
+import * as assert from 'esaver';
 
 import InjectionError from '../src/exceptions';
 
@@ -26,6 +26,7 @@ function ()
 	it('get data must return correct value when set',
     function ()
 	{
+        assert.expect(1);
 		const data = 1;
 		const cut = new InjectionError('msg', data);
 		assert.equal(cut.data, data);
@@ -34,6 +35,7 @@ function ()
 	it('get data must return null when not set',
     function ()
 	{
+        assert.expect(1);
 		const cut = new InjectionError('msg');
 		assert.equal(cut.data, null);
 	});

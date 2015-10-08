@@ -15,7 +15,7 @@
  */
 
 
-import * as assert from 'assert';
+import * as assert from 'esaver';
 
 import * as fixtures from './fixtures';
 
@@ -29,6 +29,7 @@ function ()
 	it('must throw on initialized property',
     function ()
 	{
+        assert.expect(1);
 		assert.throws(
         function ()
 		{
@@ -42,6 +43,7 @@ function ()
 	it('must not throw on non initialized instance property',
     function ()
 	{
+        assert.expect(1);
 		assert.doesNotThrow(
         function ()
 		{
@@ -60,6 +62,7 @@ function ()
 	it('must throw on multiple interfaces for instance property',
     function ()
 	{
+        assert.expect(1);
 		assert.throws(
         function ()
 		{
@@ -73,6 +76,7 @@ function ()
 	it('must not throw on single interface for instance property',
     function ()
 	{
+        assert.expect(1);
 		assert.doesNotThrow(
         function ()
 		{
@@ -91,6 +95,7 @@ function ()
 	it('must throw on non matching parameters for method',
     function ()
 	{
+        assert.expect(1);
 		assert.throws(
         function ()
 		{
@@ -104,6 +109,7 @@ function ()
 	it('must not throw on matching parameters for method',
     function ()
 	{
+        assert.expect(1);
 		assert.doesNotThrow(
         function ()
 		{
