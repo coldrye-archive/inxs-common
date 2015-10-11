@@ -11,6 +11,11 @@ following use cases
  - instance method parameter injection
 
 
+## Travis-CI
+
+[![Build Status](https://travis-ci.org/coldrye-es/inxs-common.svg?branch=master)](https://travis-ci.org/coldrye-es/inxs-common)
+
+
 ## Limitations
 
 As of now, it is not possible to inject parameters into free functions.
