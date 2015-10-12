@@ -1,5 +1,7 @@
 # inxs-common
 
+![logo](https://raw.githubusercontent.com/coldrye-es/inxs-artwork/master/dist/logo-60x80.png)
+
 Simple framework for implementing custom injection frameworks using Babel.
 
 The framework provides base classes for implementing custom injectors for the
