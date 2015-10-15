@@ -1,10 +1,10 @@
 {
   "name": "inxs-common",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Collection of abstract base classes for implementing custom injection frameworks for Babel (node, browser).",
   "keywords" : ["injection", "framework"],
   "license": "Apache-2.0",
-  "homepage": "http://es.coldrye.eu/inxs-common/",
+  "homepage": "http://inxs.es.coldrye.eu/",
   "main": "lib/inxs-common.js",
   "bugs": {
     "url": "https://github.com/coldrye-es/inxs-common/issues"
@@ -28,7 +28,8 @@
     "sprintf-js": ">=1.0.3"
   },
   "devDependencies": {
-    "esaver": ">=0.0.3"
+    "esaver": ">=0.0.3",
+    "esdoc-importpath-plugin": "coldrye-collaboration/esdoc-importpath-plugin#gh-1"
   },
   "globalDevDependencies": {
     "babel": ">=5.8.21",

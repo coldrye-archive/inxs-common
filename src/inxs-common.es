@@ -19,21 +19,6 @@ import * as messages from './messages';
 
 
 /**
- * The property descriptor provided by the babel runtime.
- *
- * @typedef {Object} PropertyDescriptor
- */
-
-
-/**
- * The method descriptor provided by the babel runtime.
- *
- * @typedef {Object} MethodDescriptor
- * @property {function} value the method
- */
-
-
-/**
  * The abstract class AbstractInjector models the root of a hierarchy of
  * classes.
  *
@@ -44,6 +29,7 @@ export class AbstractInjector
 	/**
 	 * Checks whether this is able to handle the injection request.
 	 *
+     * @abstract
 	 * @param {function|Object} target - the target object or function
 	 * @param {string} attr - the target's attribute
 	 * @param {Object<PropertyDescriptor,MethodDescriptor>} descriptor -
@@ -60,6 +46,7 @@ export class AbstractInjector
 	 * Instructs this to inject the specified interfaces ifaces into
      * the specified target's attribute attr.
 	 *
+     * @abstract
 	 * @param {function|Object} target - the target object or function
 	 * @param {string} attr - the target's attribute
 	 * @param {Object<PropertyDescriptor,MethodDescriptor>} descriptor -
@@ -81,6 +68,7 @@ export class AbstractInjector
  * hierarchy of classes representing static property injectors.
  *
  * @public
+ * @extends {AbstractInjector}
  */
 export class AbstractStaticPropertyInjector extends AbstractInjector
 {
@@ -100,6 +88,7 @@ export class AbstractStaticPropertyInjector extends AbstractInjector
  * hierarchy of classes representing instance property injectors.
  *
  * @public
+ * @extends {AbstractInjector}
  */
 export class AbstractInstancePropertyInjector extends AbstractInjector
 {
@@ -120,6 +109,7 @@ export class AbstractInstancePropertyInjector extends AbstractInjector
  * hierarchy of classes representing static method level parameter injectors.
  *
  * @public
+ * @extends {AbstractInjector}
  */
 export class AbstractStaticMethodInjector extends AbstractInjector
 {
@@ -139,6 +129,7 @@ export class AbstractStaticMethodInjector extends AbstractInjector
  * hierarchy of classes representing instance method level parameter injectors.
  *
  * @public
+ * @extends {AbstractInjector}
  */
 export class AbstractInstanceMethodInjector extends AbstractInjector
 {
@@ -152,4 +143,19 @@ export class AbstractInstanceMethodInjector extends AbstractInjector
 			typeof descriptor.value == 'function';
 	}
 }
+
+
+/**
+ * The property descriptor provided by the babel runtime.
+ *
+ * @typedef {Object} PropertyDescriptor
+ */
+
+
+/**
+ * The method descriptor provided by the babel runtime.
+ *
+ * @typedef {Object} MethodDescriptor
+ * @property {function} value the method
+ */
 
