@@ -26,33 +26,33 @@ import * as util from '../src/util';
 describe('className()',
 function ()
 {
-	it('must throw on invalid target',
+    it('must throw on invalid target',
     function ()
-	{
+    {
         assert.expect(2);
-		assert.throws(
+        assert.throws(
         function () {
-			util.className(null);
-		}, TypeError);
+            util.className(null);
+        }, TypeError);
 
-		assert.throws(
+        assert.throws(
         function () {
-			util.className(undefined);
-		}, TypeError);
-	});
+            util.className(undefined);
+        }, TypeError);
+    });
 
-	it('must return name of class',
+    it('must return name of class',
     function ()
-	{
+    {
         assert.expect(1);
-		assert.equal(util.className(fixtures.targetClass), 'targetClass');
-	});
+        assert.equal(util.className(fixtures.targetClass), 'targetClass');
+    });
 
-	it('must return name of instance of class',
+    it('must return name of instance of class',
     function ()
-	{
+    {
         assert.expect(1);
-		assert.equal(util.className(fixtures.targetInstance), 'targetClass');
-	});
+        assert.equal(util.className(fixtures.targetInstance), 'targetClass');
+    });
 });
 

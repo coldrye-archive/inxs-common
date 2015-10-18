@@ -27,98 +27,98 @@ import InjectionError from '../src/exceptions';
 describe('assertNotInitialized()',
 function ()
 {
-	it('must throw on initialized property',
+    it('must throw on initialized property',
     function ()
-	{
+    {
         assert.expect(1);
-		assert.throws(
+        assert.throws(
         function ()
-		{
-			assertions.assertNotInitialized(
-				fixtures.targetInstance, fixtures.attr,
-				fixtures.initializedPropertyDescriptor, fixtures.testIface
-			);
-		}, InjectionError);
-	});
+        {
+            assertions.assertNotInitialized(
+                fixtures.targetInstance, fixtures.attr,
+                fixtures.initializedPropertyDescriptor, fixtures.testIface
+            );
+        }, InjectionError);
+    });
 
-	it('must not throw on non initialized instance property',
+    it('must not throw on non initialized instance property',
     function ()
-	{
+    {
         assert.expect(1);
-		assert.doesNotThrow(
+        assert.doesNotThrow(
         function ()
-		{
-			assertions.assertNotInitialized(
-				fixtures.targetInstance, fixtures.attr,
-				fixtures.propertyDescriptor, fixtures.testIface
-			);
-		});
-	});
+        {
+            assertions.assertNotInitialized(
+                fixtures.targetInstance, fixtures.attr,
+                fixtures.propertyDescriptor, fixtures.testIface
+            );
+        });
+    });
 });
 
 
 describe('assertSingleInterface()',
 function ()
 {
-	it('must throw on multiple interfaces for instance property',
+    it('must throw on multiple interfaces for instance property',
     function ()
-	{
+    {
         assert.expect(1);
-		assert.throws(
+        assert.throws(
         function ()
-		{
-			assertions.assertSingleInterfaceOnly(
-				fixtures.targetInstance, fixtures.attr,
-				fixtures.propertyDescriptor, fixtures.testIfaces
-			);
-		}, InjectionError);
-	});
+        {
+            assertions.assertSingleInterfaceOnly(
+                fixtures.targetInstance, fixtures.attr,
+                fixtures.propertyDescriptor, fixtures.testIfaces
+            );
+        }, InjectionError);
+    });
 
-	it('must not throw on single interface for instance property',
+    it('must not throw on single interface for instance property',
     function ()
-	{
+    {
         assert.expect(1);
-		assert.doesNotThrow(
+        assert.doesNotThrow(
         function ()
-		{
-			assertions.assertSingleInterfaceOnly(
-				fixtures.targetInstance, fixtures.attr,
-				fixtures.propertyDescriptor, fixtures.testIface
-			);
-		});
-	});
+        {
+            assertions.assertSingleInterfaceOnly(
+                fixtures.targetInstance, fixtures.attr,
+                fixtures.propertyDescriptor, fixtures.testIface
+            );
+        });
+    });
 });
 
 
 describe('assertFormalParametersMatch()',
 function ()
 {
-	it('must throw on non matching parameters for method',
+    it('must throw on non matching parameters for method',
     function ()
-	{
+    {
         assert.expect(1);
-		assert.throws(
+        assert.throws(
         function ()
-		{
-			assertions.assertFormalParametersMatch(
-				fixtures.targetInstance, fixtures.attr,
-				fixtures.methodDescriptor, fixtures.testIface
-			);
-		}, InjectionError);
-	});
+        {
+            assertions.assertFormalParametersMatch(
+                fixtures.targetInstance, fixtures.attr,
+                fixtures.methodDescriptor, fixtures.testIface
+            );
+        }, InjectionError);
+    });
 
-	it('must not throw on matching parameters for method',
+    it('must not throw on matching parameters for method',
     function ()
-	{
+    {
         assert.expect(1);
-		assert.doesNotThrow(
+        assert.doesNotThrow(
         function ()
-		{
-			assertions.assertFormalParametersMatch(
-				fixtures.targetInstance, fixtures.attr,
-				fixtures.singleParamMethodDescriptor, fixtures.testIface
-			);
-		});
-	});
+        {
+            assertions.assertFormalParametersMatch(
+                fixtures.targetInstance, fixtures.attr,
+                fixtures.singleParamMethodDescriptor, fixtures.testIface
+            );
+        });
+    });
 });
 

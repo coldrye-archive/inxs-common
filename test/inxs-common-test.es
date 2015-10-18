@@ -26,30 +26,30 @@ function ()
 {
     describe('#canInject()',
     function ()
-	{
+    {
         assert.expect(1);
         it('must throw without being overridden',
         function ()
-		{
+        {
             assert.throws(
             function ()
-			{
-				fixtures.incompleteInjector.canInject();
+            {
+                fixtures.incompleteInjector.canInject();
             }, Error);
         });
     });
 
     describe('#inject()',
     function ()
-	{
+    {
         assert.expect(1);
         it('must throw without being overridden',
         function ()
-		{
+        {
             assert.throws(
             function ()
-			{
-				fixtures.incompleteInjector.inject();
+            {
+                fixtures.incompleteInjector.inject();
             }, Error);
         });
     });
@@ -61,10 +61,10 @@ function ()
 {
     describe('#canInject()',
     function ()
-	{
+    {
         it('must return false on wrong kind of target',
         function ()
-		{
+        {
             assert.expect(3);
             assert.equal(false, fixtures.staticPropertyInjector.canInject(
                 undefined, fixtures.attr, fixtures.propertyDescriptor
@@ -82,7 +82,7 @@ function ()
 
         it('must return false on wrong kind of attr',
         function ()
-		{
+        {
             assert.expect(1);
             assert.equal(false, fixtures.staticPropertyInjector.canInject(
                 fixtures.targetClass, undefined, fixtures.propertyDescriptor
@@ -91,7 +91,7 @@ function ()
 
         it('must return false on wrong kind of descriptor',
         function ()
-		{
+        {
             assert.expect(4);
             assert.equal(false, fixtures.staticPropertyInjector.canInject(
                 fixtures.targetClass, fixtures.attr, undefined
@@ -112,14 +112,14 @@ function ()
 
         it('must return true when all requirements are met',
         function ()
-		{
+        {
             assert.expect(1);
             assert.equal(true, fixtures.staticPropertyInjector.canInject(
                 fixtures.targetClass, fixtures.attr,
-				fixtures.propertyDescriptor
+                fixtures.propertyDescriptor
             ));
         });
-	});
+    });
 });
 
 
@@ -128,10 +128,10 @@ function ()
 {
     describe('#canInject()',
     function ()
-	{
+    {
         it('must return false on wrong kind of target',
         function ()
-		{
+        {
             assert.expect(3);
             assert.equal(false, fixtures.instancePropertyInjector.canInject(
                 undefined, fixtures.attr, fixtures.propertyDescriptor
@@ -143,23 +143,23 @@ function ()
 
             assert.equal(false, fixtures.instancePropertyInjector.canInject(
                 fixtures.targetClass, fixtures.attr,
-				fixtures.propertyDescriptor
+                fixtures.propertyDescriptor
             ));
         });
 
         it('must return false on wrong kind of attr',
         function ()
-		{
+        {
             assert.expect(1);
             assert.equal(false, fixtures.instancePropertyInjector.canInject(
                 fixtures.targetInstance, undefined,
-				fixtures.propertyDescriptor
+                fixtures.propertyDescriptor
             ));
         });
 
         it('must return false on wrong kind of descriptor',
         function ()
-		{
+        {
             assert.expect(4);
             assert.equal(false, fixtures.instancePropertyInjector.canInject(
                 fixtures.targetInstance, fixtures.attr, undefined
@@ -181,7 +181,7 @@ function ()
 
         it('must return true when all requirements are met',
         function ()
-		{
+        {
             assert.expect(1);
             assert.equal(true, fixtures.instancePropertyInjector.canInject(
                 fixtures.targetInstance, fixtures.attr,
@@ -197,10 +197,10 @@ function ()
 {
     describe('#canInject()',
     function ()
-	{
+    {
         it('must return false on wrong kind of target',
         function ()
-		{
+        {
             assert.expect(3);
             assert.equal(false, fixtures.staticMethodInjector.canInject(
                 undefined, fixtures.attr, fixtures.methodDescriptor
@@ -218,7 +218,7 @@ function ()
 
         it('must return false on wrong kind of attr',
         function ()
-		{
+        {
             assert.expect(1);
             assert.equal(false, fixtures.staticMethodInjector.canInject(
                 fixtures.targetClass, undefined, fixtures.methodDescriptor
@@ -227,7 +227,7 @@ function ()
 
         it('must return false on wrong kind of descriptor',
         function ()
-		{
+        {
             assert.expect(4);
             assert.equal(false, fixtures.staticMethodInjector.canInject(
                 fixtures.targetClass, fixtures.attr, undefined
@@ -248,7 +248,7 @@ function ()
 
         it('must return false on wrongly configured descriptor',
         function ()
-		{
+        {
             assert.expect(3);
             assert.equal(false, fixtures.staticMethodInjector.canInject(
                 fixtures.targetClass, fixtures.attr, {}
@@ -265,7 +265,7 @@ function ()
 
         it('must return true when all requirements are met',
         function ()
-		{
+        {
             assert.expect(1);
             assert.equal(true, fixtures.staticMethodInjector.canInject(
                 fixtures.targetClass, fixtures.attr, fixtures.methodDescriptor
@@ -280,10 +280,10 @@ function ()
 {
     describe('#canInject()',
     function ()
-	{
+    {
         it('must return false on wrong kind of target',
         function ()
-		{
+        {
             assert.expect(3);
             assert.equal(false, fixtures.instanceMethodInjector.canInject(
                 undefined, fixtures.attr, fixtures.methodDescriptor
@@ -300,7 +300,7 @@ function ()
 
         it('must return false on wrong kind of attr',
         function ()
-		{
+        {
             assert.equal(false, fixtures.instanceMethodInjector.canInject(
                 fixtures.targetInstance, undefined, fixtures.methodDescriptor
             ));
@@ -308,7 +308,7 @@ function ()
 
         it('must return false on wrong kind of descriptor',
         function ()
-		{
+        {
             assert.expect(4);
             assert.equal(false, fixtures.instanceMethodInjector.canInject(
                 fixtures.targetInstance, fixtures.attr, undefined
@@ -330,7 +330,7 @@ function ()
 
         it('must return false on wrongly configured descriptor',
         function ()
-		{
+        {
             assert.expect(3);
             assert.equal(false, fixtures.instanceMethodInjector.canInject(
                 fixtures.targetInstance, fixtures.attr, {}
@@ -347,7 +347,7 @@ function ()
 
         it('must return true when all requirements are met',
         function ()
-		{
+        {
             assert.expect(1);
             assert.equal(true, fixtures.instanceMethodInjector.canInject(
                 fixtures.targetInstance, fixtures.attr,
