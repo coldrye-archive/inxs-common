@@ -1,3 +1,4 @@
+// vim: expandtab:ts=4:sw=4
 /*
  * Copyright 2015 Carsten Klein
  *
@@ -29,7 +30,7 @@ export const MSG_DERIVED_CLASSES_MUST_OVERRIDE =
  */
 export const MSG_ONE_IFACE_ONLY =
     'must specify one interface only when injecting into property "%s" ' +
-	'of target "%s"';
+    'of target "%s"';
 
 
 /**
@@ -46,7 +47,7 @@ export const MSG_UNABLE_TO_INJECT_INITIALIZED =
  */
 export const MSG_FORMAL_PARAMETERS_DO_NOT_MATCH =
     'unable to inject more interfaces than there are formal parameters ' +
-	'into method "%s" of target "%s"';
+    'into method "%s" of target "%s"';
 
 
 /**

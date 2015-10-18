@@ -1,3 +1,4 @@
+// vim: expandtab:ts=4:sw=4
 /*
  * Copyright 2015 Carsten Klein
  *
@@ -36,12 +37,12 @@ import * as util from './util';
 export function assertNotInitialized(target, attr, descriptor, ifaces)
 {
     if (typeof descriptor.initializer == 'function')
-	{
-		_doThrow
-		(
-			messages.MSG_UNABLE_TO_INJECT_INITIALIZED,
-			target, attr, descriptor, ifaces
-		);
+    {
+        _doThrow
+        (
+            messages.MSG_UNABLE_TO_INJECT_INITIALIZED,
+            target, attr, descriptor, ifaces
+        );
     }
 }
 
@@ -60,11 +61,11 @@ export function assertNotInitialized(target, attr, descriptor, ifaces)
 export function assertSingleInterfaceOnly(target, attr, descriptor, ifaces)
 {
     if (ifaces.length > 1)
-	{
-		_doThrow (
-			messages.MSG_SINGLE_INFACE_ONLY,
-			target, attr, descriptor, ifaces
-		);
+    {
+        _doThrow (
+            messages.MSG_SINGLE_INFACE_ONLY,
+            target, attr, descriptor, ifaces
+        );
     }
 }
 
@@ -82,15 +83,15 @@ export function assertSingleInterfaceOnly(target, attr, descriptor, ifaces)
  * @returns {void}
  */
 export function assertFormalParametersMatch(
-	target, attr, descriptor, ifaces
+    target, attr, descriptor, ifaces
 )
 {
     if (descriptor.value.length < ifaces.length)
-	{
-		_doThrow (
-			messages.MSG_FORMAL_PARAMETERS_DO_NOT_MATCH,
-			target, attr, descriptor, ifaces
-		);
+    {
+        _doThrow (
+            messages.MSG_FORMAL_PARAMETERS_DO_NOT_MATCH,
+            target, attr, descriptor, ifaces
+        );
     }
 }
 
@@ -109,16 +110,16 @@ export function assertFormalParametersMatch(
  */
 function _doThrow(message, target, attr, descriptor, ifaces)
 {
-	const className = util.className(target);
+    const className = util.className(target);
 
-	throw new InjectionError(
-		sprintf.sprintf(message, className, attr),
-		{
-			target : className,
-			attr : attr,
-			descriptor : descriptor,
-			interfaces : ifaces
-		}
-	);
+    throw new InjectionError(
+        sprintf.sprintf(message, className, attr),
+        {
+            target : className,
+            attr : attr,
+            descriptor : descriptor,
+            interfaces : ifaces
+        }
+    );
 }
 

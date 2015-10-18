@@ -1,3 +1,4 @@
+// vim: expandtab:ts=4:sw=4
 /*
  * Copyright 2015 Carsten Klein
  *
@@ -22,26 +23,26 @@
  */
 export default class InjectionError extends Error
 {
-	/**
-	 * @param {string} message - the message
-	 * @param {?(Object|Simple)} data - optional data
-	 * @returns {void}
-	 */
-	constructor(message, data = null)
-	{
-		super(message);
+    /**
+     * @param {string} message - the message
+     * @param {?(Object|Simple)} data - optional data
+     * @returns {void}
+     */
+    constructor(message, data = null)
+    {
+        super(message);
 
-		this._data = data;
-	}
+        this._data = data;
+    }
 
-	/**
-	 * Gets the data or null.
-	 *
-	 * @type {Object|Simple}
-	 */
-	get data()
-	{
-		return this._data;
-	}
+    /**
+     * Gets the data or null.
+     *
+     * @type {Object|Simple}
+     */
+    get data()
+    {
+        return this._data;
+    }
 }
 

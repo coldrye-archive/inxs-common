@@ -1,3 +1,4 @@
+// vim: expandtab:ts=4:sw=4
 /*
  * Copyright 2015 Carsten Klein
  *
@@ -26,38 +27,38 @@ import * as messages from './messages';
  */
 export class AbstractInjector
 {
-	/**
-	 * Checks whether this is able to handle the injection request.
-	 *
+    /**
+     * Checks whether this is able to handle the injection request.
+     *
      * @abstract
-	 * @param {function|Object} target - the target object or function
-	 * @param {string} attr - the target's attribute
-	 * @param {Object<PropertyDescriptor,MethodDescriptor>} descriptor -
+     * @param {function|Object} target - the target object or function
+     * @param {string} attr - the target's attribute
+     * @param {Object<PropertyDescriptor,MethodDescriptor>} descriptor -
      * the descriptor
-	 * @returns {boolean}
-	 */
-	/*eslint no-unused-vars:0*/
+     * @returns {boolean}
+     */
+    /*eslint no-unused-vars:0*/
     canInject(target, attr, descriptor)
-	{
+    {
         throw new Error(messages.MSG_DERIVED_CLASSES_MUST_OVERRIDE);
     }
 
-	/**
-	 * Instructs this to inject the specified interfaces ifaces into
+    /**
+     * Instructs this to inject the specified interfaces ifaces into
      * the specified target's attribute attr.
-	 *
+     *
      * @abstract
-	 * @param {function|Object} target - the target object or function
-	 * @param {string} attr - the target's attribute
-	 * @param {Object<PropertyDescriptor,MethodDescriptor>} descriptor -
+     * @param {function|Object} target - the target object or function
+     * @param {string} attr - the target's attribute
+     * @param {Object<PropertyDescriptor,MethodDescriptor>} descriptor -
      * the descriptor
-	 * @param {Array<string,function>} ifaces - the interfaces to inject
-	 * @throws {InjectionError}
+     * @param {Array<string,function>} ifaces - the interfaces to inject
+     * @throws {InjectionError}
      * @returns {void}
-	 */
-	/*eslint no-unused-vars:0*/
+     */
+    /*eslint no-unused-vars:0*/
     inject(target, attr, descriptor, ifaces)
-	{
+    {
         throw new Error(messages.MSG_DERIVED_CLASSES_MUST_OVERRIDE);
     }
 }
@@ -73,11 +74,11 @@ export class AbstractInjector
 export class AbstractStaticPropertyInjector extends AbstractInjector
 {
     canInject(target, attr, descriptor)
-	{
+    {
         return typeof target == 'function' &&
-			descriptor !== null &&
-			typeof descriptor == 'object' &&
-			typeof attr == 'string' &&
+            descriptor !== null &&
+            typeof descriptor == 'object' &&
+            typeof attr == 'string' &&
             !descriptor.value;
     }
 }
@@ -93,14 +94,14 @@ export class AbstractStaticPropertyInjector extends AbstractInjector
 export class AbstractInstancePropertyInjector extends AbstractInjector
 {
     canInject(target, attr, descriptor)
-	{
+    {
         return target !== null &&
-			typeof target == 'object' &&
-			descriptor !== null &&
-			typeof descriptor == 'object' &&
-			typeof attr == 'string' &&
+            typeof target == 'object' &&
+            descriptor !== null &&
+            typeof descriptor == 'object' &&
+            typeof attr == 'string' &&
             !descriptor.value;
-	}
+    }
 }
 
 
@@ -114,13 +115,13 @@ export class AbstractInstancePropertyInjector extends AbstractInjector
 export class AbstractStaticMethodInjector extends AbstractInjector
 {
     canInject(target, attr, descriptor)
-	{
+    {
         return typeof target == 'function' &&
-			descriptor !== null &&
-			typeof descriptor == 'object' &&
-			typeof attr == 'string' &&
-			typeof descriptor.value == 'function';
-	}
+            descriptor !== null &&
+            typeof descriptor == 'object' &&
+            typeof attr == 'string' &&
+            typeof descriptor.value == 'function';
+    }
 }
 
 
@@ -134,14 +135,14 @@ export class AbstractStaticMethodInjector extends AbstractInjector
 export class AbstractInstanceMethodInjector extends AbstractInjector
 {
     canInject(target, attr, descriptor)
-	{
+    {
         return target !== null &&
-			typeof target == 'object' &&
-			descriptor !== null &&
-			typeof descriptor == 'object' &&
-			typeof attr == 'string' &&
-			typeof descriptor.value == 'function';
-	}
+            typeof target == 'object' &&
+            descriptor !== null &&
+            typeof descriptor == 'object' &&
+            typeof attr == 'string' &&
+            typeof descriptor.value == 'function';
+    }
 }
 
 
