@@ -163,21 +163,21 @@ export class AbstractInstanceMethodInjector extends AbstractInjector
 
 
 /**
- * @typedef {(MethodDescriptor|PropertyDescriptor)} DescriptorType
+ * @typedef {(MethodDescriptorType|PropertyDescriptorType)} DescriptorType
  */
 
 
 /**
  * The property descriptor provided by the babel runtime.
  *
- * @typedef {Object} PropertyDescriptor
+ * @typedef {Object} PropertyDescriptorType
  */
 
 
 /**
  * The method descriptor provided by the babel runtime.
  *
- * @typedef {Object} MethodDescriptor
+ * @typedef {Object} MethodDescriptorType
  * @property {function} value the method
  */
 
