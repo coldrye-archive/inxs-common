@@ -31,11 +31,11 @@ export class AbstractInjector
      * Checks whether this is able to handle the injection request.
      *
      * @abstract
-     * @param {function|Object} target - the target object or function
+     * @param {TargetType} target - the target object or function
      * @param {string} attr - the target's attribute
-     * @param {Object<PropertyDescriptor,MethodDescriptor>} descriptor -
-     * the descriptor
-     * @returns {boolean}
+     * @param {DescriptorType} descriptor - the descriptor
+     * @returns {boolean} - true whether this can handle the request,
+     * false otherwise
      */
     /*eslint no-unused-vars:0*/
     canInject(target, attr, descriptor)
@@ -48,11 +48,10 @@ export class AbstractInjector
      * the specified target's attribute attr.
      *
      * @abstract
-     * @param {function|Object} target - the target object or function
+     * @param {TargetType} target - the target object or function
      * @param {string} attr - the target's attribute
-     * @param {Object<PropertyDescriptor,MethodDescriptor>} descriptor -
-     * the descriptor
-     * @param {Array<string,function>} ifaces - the interfaces to inject
+     * @param {DescriptorType} descriptor - the descriptor
+     * @param {Array<InterfaceType>} ifaces - the interfaces to inject
      * @throws {InjectionError}
      * @returns {void}
      */
@@ -73,6 +72,9 @@ export class AbstractInjector
  */
 export class AbstractStaticPropertyInjector extends AbstractInjector
 {
+    /**
+     * @override
+     */
     canInject(target, attr, descriptor)
     {
         return typeof target == 'function' &&
@@ -93,6 +95,9 @@ export class AbstractStaticPropertyInjector extends AbstractInjector
  */
 export class AbstractInstancePropertyInjector extends AbstractInjector
 {
+    /**
+     * @override
+     */
     canInject(target, attr, descriptor)
     {
         return target !== null &&
@@ -114,6 +119,9 @@ export class AbstractInstancePropertyInjector extends AbstractInjector
  */
 export class AbstractStaticMethodInjector extends AbstractInjector
 {
+    /**
+     * @override
+     */
     canInject(target, attr, descriptor)
     {
         return typeof target == 'function' &&
@@ -134,6 +142,9 @@ export class AbstractStaticMethodInjector extends AbstractInjector
  */
 export class AbstractInstanceMethodInjector extends AbstractInjector
 {
+    /**
+     * @override
+     */
     canInject(target, attr, descriptor)
     {
         return target !== null &&
@@ -144,6 +155,16 @@ export class AbstractInstanceMethodInjector extends AbstractInjector
             typeof descriptor.value == 'function';
     }
 }
+
+
+/**
+ * @typedef {(function|string)} InterfaceType
+ */
+
+
+/**
+ * @typedef {(MethodDescriptor|PropertyDescriptor)} DescriptorType
+ */
 
 
 /**
@@ -158,5 +179,10 @@ export class AbstractInstanceMethodInjector extends AbstractInjector
  *
  * @typedef {Object} MethodDescriptor
  * @property {function} value the method
+ */
+
+
+/**
+ * @typedef {(function|Object)} TargetType
  */
 
