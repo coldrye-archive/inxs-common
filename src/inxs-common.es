@@ -45,7 +45,8 @@ export class AbstractInjector
 
     /**
      * Instructs this to inject the specified interfaces ifaces into
-     * the specified target's attribute attr.
+     * the specified target's attribute ``attr`` or as parameters into
+     * the specified target's method ``attr``.
      *
      * @abstract
      * @param {TargetType} target - the target object or function
