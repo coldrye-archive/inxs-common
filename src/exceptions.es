@@ -25,7 +25,7 @@ export default class InjectionError extends Error
 {
     /**
      * @param {string} message - the message
-     * @param {?(Object|Simple)} data - optional data
+     * @param {*} [data] - optional data
      * @returns {void}
      */
     constructor(message, data = null)
@@ -38,7 +38,7 @@ export default class InjectionError extends Error
     /**
      * Gets the data or null.
      *
-     * @type {Object|Simple}
+     * @type {*}
      */
     get data()
     {
