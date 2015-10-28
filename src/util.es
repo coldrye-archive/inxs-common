@@ -24,7 +24,7 @@ import * as messages from './messages';
  * class (function) or an instance object.
  *
  * @protected
- * @param {function|Object} target - the target object or function
+ * @param {TargeType} target - the target object or function
  * @returns {string} the target's class name
  */
 export function className(target)
