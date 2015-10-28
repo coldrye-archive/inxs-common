@@ -90,4 +90,5 @@ more information on how to make use of this framework.
 
  - (1) [Github Site](https://github.com/coldrye-es/inxs-common)
  - (2) [Keith Cirkel on "Why we should stop using Grunt & Gulp"](http://blog.keithcirkel.co.uk/why-we-should-stop-using-grunt)
+ - (3) [Project Site](http://inxs.es.coldrye.eu)
 
