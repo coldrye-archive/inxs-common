@@ -159,7 +159,7 @@ export class AbstractInstanceMethodInjector extends AbstractInjector
 
 
 /**
- * @typedef {(function|string)} InterfaceType
+ * @typedef {(function|string|Symbol)} InterfaceType
  */
 
 
