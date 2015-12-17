@@ -15,13 +15,15 @@
  * limitations under the License.
  */
 
+import EsError from 'esbases/error';
+
 
 /**
  * Exception thrown by injectors.
  *
  * @public
  */
-export default class InjectionError extends Error
+export default class InjectionError extends EsError
 {
     /**
      * @param {string} message - the message
