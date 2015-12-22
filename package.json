@@ -2,7 +2,10 @@
   "name": "inxs-common",
   "version": "0.1.0",
   "description": "Collection of abstract base classes for implementing custom injection frameworks for Babel 6.x (node, browser).",
-  "keywords" : ["injection", "framework"],
+  "keywords": [
+    "injection",
+    "framework"
+  ],
   "license": "Apache-2.0",
   "homepage": "http://inxs.es.coldrye.eu/",
   "main": "inxs-common.js",
@@ -32,7 +35,7 @@
   "dependencies": {
     "babel-runtime": ">=6.3.x",
     "sprintf-js": ">=1.0.3",
-    "esbases" : ">=0.0.1"
+    "esbases": ">=0.0.1"
   },
   "devDependencies": {
     "babel-plugin-external-helpers-2": ">=6.3.x",
@@ -43,6 +46,7 @@
     "esaver": ">=0.0.3",
     "esdoc-es7-plugin": ">=0.0.3",
     "esdoc-importpath-plugin": ">=0.0.1",
+    "esmake": "coldrye-es/esmake",
     "glob": ">=6.0.1"
   },
   "globalDevDependencies": {
