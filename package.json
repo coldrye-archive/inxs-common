@@ -30,7 +30,7 @@
     "prepublish": "test \"${MASTER}\" = \"1\" || (echo ${npm_config_argv} | grep -E '(install|update)' >/dev/null 2>/dev/null || (echo 'use *make publish* instead' && exit 1))"
   },
   "dependencies": {
-    "babel-runtime": ">=6.2.4",
+    "babel-runtime": ">=6.3.x",
     "sprintf-js": ">=1.0.3",
     "esbases" : ">=0.0.1"
   },
