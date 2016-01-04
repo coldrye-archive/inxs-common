@@ -1,19 +1,3 @@
-<a name="0.1.1"></a>
-## 0.1.1 (2016-01-02)
-
-
-* switching to generalized esmake based build process ([fd2ab29](https://github.com/coldrye-es/inxs-common/commit/fd2ab29))
-* version bump v0.1.1 ([90d47bb](https://github.com/coldrye-es/inxs-common/commit/90d47bb))
-
-### fix
-
-* fix(dependencies): babel-runtime ([a0ddcef](https://github.com/coldrye-es/inxs-common/commit/a0ddcef))
-* fix(README.md): streamlining documentation ([5ac7c77](https://github.com/coldrye-es/inxs-common/commit/5ac7c77))
-* fix(test): invalid import ([43a60d1](https://github.com/coldrye-es/inxs-common/commit/43a60d1))
-* fix(travis): node 4.2.2 ([f0ed38f](https://github.com/coldrye-es/inxs-common/commit/f0ed38f))
-
-
-
 <a name="0.1.0"></a>
 # 0.1.0 (2015-12-18)
 
@@ -21,6 +5,7 @@
 * breaking changes here, no longer compatible to v0.0.12! ([623e724](https://github.com/coldrye-es/inxs-common/commit/623e724))
 * further hardening npm publish ([a747af9](https://github.com/coldrye-es/inxs-common/commit/a747af9))
 * securing npm publish so that we will never ever again produce empty distribution packages ([7769ece](https://github.com/coldrye-es/inxs-common/commit/7769ece))
+* fix(test): invalid import ([43a60d1](https://github.com/coldrye-es/inxs-common/commit/43a60d1))
 
 
 
