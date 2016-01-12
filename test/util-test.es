@@ -44,14 +44,12 @@ function ()
     it('must return name of class',
     function ()
     {
-        assert.expect(1);
         assert.equal(util.className(fixtures.targetClass), 'targetClass');
     });
 
     it('must return name of instance of class',
     function ()
     {
-        assert.expect(1);
         assert.equal(util.className(fixtures.targetInstance), 'targetClass');
     });
 });

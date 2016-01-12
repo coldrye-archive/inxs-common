@@ -27,7 +27,6 @@ function ()
     describe('#canInject()',
     function ()
     {
-        assert.expect(1);
         it('must throw without being overridden',
         function ()
         {
@@ -42,7 +41,6 @@ function ()
     describe('#inject()',
     function ()
     {
-        assert.expect(1);
         it('must throw without being overridden',
         function ()
         {
@@ -66,58 +64,56 @@ function ()
         function ()
         {
             assert.expect(3);
-            assert.equal(false, fixtures.staticPropertyInjector.canInject(
+            assert.equal(fixtures.staticPropertyInjector.canInject(
                 undefined, fixtures.attr, fixtures.propertyDescriptor
-            ));
+            ), false);
 
-            assert.equal(false, fixtures.staticPropertyInjector.canInject(
+            assert.equal(fixtures.staticPropertyInjector.canInject(
                 null, fixtures.attr, fixtures.propertyDescriptor
-            ));
+            ), false);
 
-            assert.equal(false, fixtures.staticPropertyInjector.canInject(
+            assert.equal(fixtures.staticPropertyInjector.canInject(
                 fixtures.targetInstance, fixtures.attr,
                 fixtures.propertyDescriptor
-            ));
+            ), false);
         });
 
         it('must return false on wrong kind of attr',
         function ()
         {
-            assert.expect(1);
-            assert.equal(false, fixtures.staticPropertyInjector.canInject(
+            assert.equal(fixtures.staticPropertyInjector.canInject(
                 fixtures.targetClass, undefined, fixtures.propertyDescriptor
-            ));
+            ), false);
         });
 
         it('must return false on wrong kind of descriptor',
         function ()
         {
             assert.expect(4);
-            assert.equal(false, fixtures.staticPropertyInjector.canInject(
+            assert.equal(fixtures.staticPropertyInjector.canInject(
                 fixtures.targetClass, fixtures.attr, undefined
-            ));
+            ), false);
 
-            assert.equal(false, fixtures.staticPropertyInjector.canInject(
+            assert.equal(fixtures.staticPropertyInjector.canInject(
                 fixtures.targetClass, fixtures.attr, null
-            ));
+            ), false);
 
-            assert.equal(false, fixtures.staticPropertyInjector.canInject(
+            assert.equal(fixtures.staticPropertyInjector.canInject(
                 fixtures.targetClass, fixtures.attr, fixtures.targetClass
-            ));
+            ), false);
 
-            assert.equal(false, fixtures.staticPropertyInjector.canInject(
+            assert.equal(fixtures.staticPropertyInjector.canInject(
                 fixtures.targetClass, fixtures.attr, fixtures.methodDescriptor
-            ));
+            ), false);
         });
 
         it('must return true when all requirements are met',
         function ()
         {
-            assert.expect(1);
-            assert.equal(true, fixtures.staticPropertyInjector.canInject(
+            assert.equal(fixtures.staticPropertyInjector.canInject(
                 fixtures.targetClass, fixtures.attr,
                 fixtures.propertyDescriptor
-            ));
+            ), true);
         });
     });
 });
@@ -133,60 +129,58 @@ function ()
         function ()
         {
             assert.expect(3);
-            assert.equal(false, fixtures.instancePropertyInjector.canInject(
+            assert.equal(fixtures.instancePropertyInjector.canInject(
                 undefined, fixtures.attr, fixtures.propertyDescriptor
-            ));
+            ), false);
 
-            assert.equal(false, fixtures.instancePropertyInjector.canInject(
+            assert.equal(fixtures.instancePropertyInjector.canInject(
                 null, fixtures.attr, fixtures.propertyDescriptor
-            ));
+            ), false);
 
-            assert.equal(false, fixtures.instancePropertyInjector.canInject(
+            assert.equal(fixtures.instancePropertyInjector.canInject(
                 fixtures.targetClass, fixtures.attr,
                 fixtures.propertyDescriptor
-            ));
+            ), false);
         });
 
         it('must return false on wrong kind of attr',
         function ()
         {
-            assert.expect(1);
-            assert.equal(false, fixtures.instancePropertyInjector.canInject(
+            assert.equal(fixtures.instancePropertyInjector.canInject(
                 fixtures.targetInstance, undefined,
                 fixtures.propertyDescriptor
-            ));
+            ), false);
         });
 
         it('must return false on wrong kind of descriptor',
         function ()
         {
             assert.expect(4);
-            assert.equal(false, fixtures.instancePropertyInjector.canInject(
+            assert.equal(fixtures.instancePropertyInjector.canInject(
                 fixtures.targetInstance, fixtures.attr, undefined
-            ));
+            ), false);
 
-            assert.equal(false, fixtures.instancePropertyInjector.canInject(
+            assert.equal(fixtures.instancePropertyInjector.canInject(
                 fixtures.targetInstance, fixtures.attr, null
-            ));
+            ), false);
 
-            assert.equal(false, fixtures.instancePropertyInjector.canInject(
+            assert.equal(fixtures.instancePropertyInjector.canInject(
                 fixtures.targetInstance, fixtures.attr, fixtures.targetClass
-            ));
+            ), false);
 
-            assert.equal(false, fixtures.instancePropertyInjector.canInject(
+            assert.equal(fixtures.instancePropertyInjector.canInject(
                 fixtures.targetInstance, fixtures.attr,
                 fixtures.methodDescriptor
-            ));
+            ), false);
         });
 
         it('must return true when all requirements are met',
         function ()
         {
-            assert.expect(1);
-            assert.equal(true, fixtures.instancePropertyInjector.canInject(
+            assert.equal(fixtures.instancePropertyInjector.canInject(
                 fixtures.targetInstance, fixtures.attr,
                 fixtures.propertyDescriptor
-            ));
+            ), true);
         });
     });
 });
@@ -202,74 +196,72 @@ function ()
         function ()
         {
             assert.expect(3);
-            assert.equal(false, fixtures.staticMethodInjector.canInject(
+            assert.equal(fixtures.staticMethodInjector.canInject(
                 undefined, fixtures.attr, fixtures.methodDescriptor
-            ));
+            ), false);
 
-            assert.equal(false, fixtures.staticMethodInjector.canInject(
+            assert.equal(fixtures.staticMethodInjector.canInject(
                 null, fixtures.attr, fixtures.methodDescriptor
-            ));
+            ), false);
 
-            assert.equal(false, fixtures.staticMethodInjector.canInject(
+            assert.equal(fixtures.staticMethodInjector.canInject(
                 fixtures.targetInstance, fixtures.attr,
                 fixtures.methodDescriptor
-            ));
+            ), false);
         });
 
         it('must return false on wrong kind of attr',
         function ()
         {
-            assert.expect(1);
-            assert.equal(false, fixtures.staticMethodInjector.canInject(
+            assert.equal(fixtures.staticMethodInjector.canInject(
                 fixtures.targetClass, undefined, fixtures.methodDescriptor
-            ));
+            ), false);
         });
 
         it('must return false on wrong kind of descriptor',
         function ()
         {
             assert.expect(4);
-            assert.equal(false, fixtures.staticMethodInjector.canInject(
+            assert.equal(fixtures.staticMethodInjector.canInject(
                 fixtures.targetClass, fixtures.attr, undefined
-            ));
+            ), false);
 
-            assert.equal(false, fixtures.staticMethodInjector.canInject(
+            assert.equal(fixtures.staticMethodInjector.canInject(
                 fixtures.targetClass, fixtures.attr, null
-            ));
+            ), false);
 
-            assert.equal(false, fixtures.staticMethodInjector.canInject(
+            assert.equal(fixtures.staticMethodInjector.canInject(
                 fixtures.targetClass, fixtures.attr, fixtures.targetClass
-            ));
+            ), false);
 
-            assert.equal(false, fixtures.staticMethodInjector.canInject(
+            assert.equal(fixtures.staticMethodInjector.canInject(
                 fixtures.targetClass, fixtures.attr, fixtures.propertyDescriptor
-            ));
+            ), false);
         });
 
         it('must return false on wrongly configured descriptor',
         function ()
         {
             assert.expect(3);
-            assert.equal(false, fixtures.staticMethodInjector.canInject(
+            assert.equal(fixtures.staticMethodInjector.canInject(
                 fixtures.targetClass, fixtures.attr, {}
-            ));
+            ), false);
 
-            assert.equal(false, fixtures.staticMethodInjector.canInject(
+            assert.equal(fixtures.staticMethodInjector.canInject(
                 fixtures.targetClass, fixtures.attr, { value : null }
-            ));
+            ), false);
 
-            assert.equal(false, fixtures.staticMethodInjector.canInject(
+            assert.equal(fixtures.staticMethodInjector.canInject(
                 fixtures.targetClass, fixtures.attr, { value : {} }
-            ));
+            ), false);
         });
 
         it('must return true when all requirements are met',
         function ()
         {
-            assert.expect(1);
             assert.equal(true, fixtures.staticMethodInjector.canInject(
                 fixtures.targetClass, fixtures.attr, fixtures.methodDescriptor
-            ));
+            ), true);
         });
     });
 });
@@ -285,74 +277,73 @@ function ()
         function ()
         {
             assert.expect(3);
-            assert.equal(false, fixtures.instanceMethodInjector.canInject(
+            assert.equal(fixtures.instanceMethodInjector.canInject(
                 undefined, fixtures.attr, fixtures.methodDescriptor
-            ));
+            ), false);
 
-            assert.equal(false, fixtures.instanceMethodInjector.canInject(
+            assert.equal(fixtures.instanceMethodInjector.canInject(
                 null, fixtures.attr, fixtures.methodDescriptor
-            ));
+            ), false);
 
-            assert.equal(false, fixtures.instanceMethodInjector.canInject(
+            assert.equal(fixtures.instanceMethodInjector.canInject(
                 fixtures.targetClass, fixtures.attr, fixtures.methodDescriptor
-            ));
+            ), false);
         });
 
         it('must return false on wrong kind of attr',
         function ()
         {
-            assert.equal(false, fixtures.instanceMethodInjector.canInject(
+            assert.equal(fixtures.instanceMethodInjector.canInject(
                 fixtures.targetInstance, undefined, fixtures.methodDescriptor
-            ));
+            ), false);
         });
 
         it('must return false on wrong kind of descriptor',
         function ()
         {
             assert.expect(4);
-            assert.equal(false, fixtures.instanceMethodInjector.canInject(
+            assert.equal(fixtures.instanceMethodInjector.canInject(
                 fixtures.targetInstance, fixtures.attr, undefined
-            ));
+            ), false);
 
-            assert.equal(false, fixtures.instanceMethodInjector.canInject(
+            assert.equal(fixtures.instanceMethodInjector.canInject(
                 fixtures.targetInstance, fixtures.attr, null
-            ));
+            ), false);
 
-            assert.equal(false, fixtures.instanceMethodInjector.canInject(
+            assert.equal(fixtures.instanceMethodInjector.canInject(
                 fixtures.targetInstance, fixtures.attr, fixtures.targetClass
-            ));
+            ), false);
 
-            assert.equal(false, fixtures.staticMethodInjector.canInject(
+            assert.equal(fixtures.staticMethodInjector.canInject(
                 fixtures.targetInstance, fixtures.attr,
                 fixtures.propertyDescriptor
-            ));
+            ), false);
         });
 
         it('must return false on wrongly configured descriptor',
         function ()
         {
             assert.expect(3);
-            assert.equal(false, fixtures.instanceMethodInjector.canInject(
+            assert.equal(fixtures.instanceMethodInjector.canInject(
                 fixtures.targetInstance, fixtures.attr, {}
-            ));
+            ), false);
 
-            assert.equal(false, fixtures.instanceMethodInjector.canInject(
+            assert.equal(fixtures.instanceMethodInjector.canInject(
                 fixtures.targetInstance, fixtures.attr, { value : null }
-            ));
+            ), false);
 
-            assert.equal(false, fixtures.instanceMethodInjector.canInject(
+            assert.equal(fixtures.instanceMethodInjector.canInject(
                 fixtures.targetInstance, fixtures.attr, { value : {} }
-            ));
+            ), false);
         });
 
         it('must return true when all requirements are met',
         function ()
         {
-            assert.expect(1);
-            assert.equal(true, fixtures.instanceMethodInjector.canInject(
+            assert.equal(fixtures.instanceMethodInjector.canInject(
                 fixtures.targetInstance, fixtures.attr,
                 fixtures.methodDescriptor
-            ));
+            ), true);
         });
     });
 });

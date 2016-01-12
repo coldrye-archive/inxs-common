@@ -27,7 +27,6 @@ function ()
     it('data must return correct value when set',
     function ()
     {
-        assert.expect(1);
         const cut = new InjectionError('msg', 1);
 
         assert.equal(cut.data, 1);
@@ -36,7 +35,6 @@ function ()
     it('data must return null when not set',
     function ()
     {
-        assert.expect(1);
         const cut = new InjectionError('msg');
         assert.equal(cut.data, null);
     });

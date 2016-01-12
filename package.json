@@ -1,6 +1,6 @@
 {
   "name": "inxs-common",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Collection of abstract base classes for implementing custom injection frameworks for Babel 6.x (node, browser).",
   "keywords": [
     "injection",
