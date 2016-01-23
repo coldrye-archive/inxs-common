@@ -1,8 +1,11 @@
+[![Build Status](https://travis-ci.org/coldrye-es/inxs-common.svg?branch=master)](https://travis-ci.org/coldrye-es/inxs-common)
+[![NPM](https://nodei.co/npm/inxs-common.png?mini=true)](https://nodei.co/npm/inxs-common/)
+
 # inxs-common
 
 ![logo](https://raw.githubusercontent.com/coldrye-es/inxs-artwork/master/dist/logo.png)
 
-Simple framework for implementing custom injection frameworks using Babel 6.x.
+Simple framework for implementing custom injection frameworks using Babel 6+.
 
 The framework provides base classes for implementing custom injectors for the
 following use cases
@@ -13,31 +16,15 @@ following use cases
  - instance method parameter injection
 
 
+## Releases
+
+See the [changelog](https://github.com/coldrye-es/inxs-common/blob/master/CHANGELOG.md) for more information.
+
+
 ## Limitations
 
 As of now, it is not possible to inject parameters into free functions.
 There is no abstract injector for constructor injection.
-
-
-## Breaking Changes
-
-Since version v0.1.0 this is no longer compatible with Babel 5.x. 
-
-ES decorators are about to change. Currently, we must use the legacy ES2015 decorators.
-Support for these decorators is provided by the interim package published by
-[loganfsmyth](https://github.com/loganfsmyth/babel-plugin-transform-decorators-legacy).
-
-Please note that during build we have to make sure that **babel-traverse** is up to date, too.
-See https://github.com/loganfsmyth/babel-plugin-transform-decorators-legacy/issues/8 for more information.
-
-Another important change is that the distribution layout was changed since v0.1.0.
-Clients of this will now be able to simply import from ``<package>`` rather than 
-from ``<package>/lib``.
-
-
-## Travis-CI
-
-[![Build Status](https://travis-ci.org/coldrye-es/inxs-common.svg?branch=master)](https://travis-ci.org/coldrye-es/inxs-common)
 
 
 ## Project Site
@@ -52,7 +39,7 @@ While I believe that the feature set of the software can be considered final,
 you are very welcome to propose changes and report bugs, or even provide pull
 requests on [github](https://github.com/coldrye-es/inxs-common).
 
-See the [contributing guidelines](https://github.com/coldrye-es/inxs/blob/master/CONTRIBUTING.md) for more information.
+See the [contributing guidelines](https://github.com/coldrye-es/inxs-common/blob/master/CONTRIBUTING.md) for more information.
 
 
 ### Contributors
@@ -60,27 +47,26 @@ See the [contributing guidelines](https://github.com/coldrye-es/inxs/blob/master
  - [Carsten Klein](https://github.com/silkentrance) **Maintainer**
 
 
-## Runtime Dependencies
+### Building
 
- - [babel-runtime](https://github.com/babel/babel)
- - [esbases](https://github.com/coldrye-es/esbases)
- - [sprintf-js](https://github.com/alexei/sprintf.js)
+See [build process](https://github.com/coldrye-es/esmake#build-process) and the available [build targets](https://github.com/coldrye-es/esmake#makefilesoftwarein)
+for more information on how to build this.
 
-
-## Development Dependencies
-
-See [esmake](https://github.com/coldrye-es/esmake#development-dependencies) for more information on development dependencies.
-
-
-## Building
-
-See [esmake](https://github.com/coldrye-es/esmake#build-process) and the targets listed under
-[esmake](https://github.com/coldrye-es/esmake#makefilesoftwarein) for more information on how to build this.
+See also [development dependencies](https://github.com/coldrye-es/esmake#development-dependencies) and on how to deal with them.
 
 
 ## Installation
 
 ``npm install --save inxs-common``
+
+
+## Runtime Dependencies
+
+ - _[babel-runtime](https://github.com/babel/babel)_
+ - [esbases](https://github.com/coldrye-es/esbases)
+ - [sprintf-js](https://github.com/alexei/sprintf.js)
+
+**The dependencies denoted in _italics_ must be provided by the using project.**
 
 
 ## Usage

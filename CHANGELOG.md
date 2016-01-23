@@ -1,3 +1,25 @@
+<a name="0.1.2"></a>
+## 0.1.2 (2016-01-23)
+
+
+### chore
+
+* chore: updating commons, made babel-runtime a dev dependency ([1608687](https://github.com/coldrye-es/inxs-common/commit/1608687))
+* chore(esdoc): redefining dev+pub docs, fix repository link in package.json ([6572635](https://github.com/coldrye-es/inxs-common/commit/6572635))
+* chore(LICENSE): update copyright info ([0a4831e](https://github.com/coldrye-es/inxs-common/commit/0a4831e))
+* chore(tests): actual and expected got mixed up ([febac0e](https://github.com/coldrye-es/inxs-common/commit/febac0e))
+
+### docs
+
+* docs(README.md): correct logo ([a01bbe8](https://github.com/coldrye-es/inxs-common/commit/a01bbe8))
+
+### fix
+
+* fix(package.json): email ([b82daf4](https://github.com/coldrye-es/inxs-common/commit/b82daf4))
+* fix(README.md): import examples are not rendered correctly ([d047ccf](https://github.com/coldrye-es/inxs-common/commit/d047ccf))
+
+
+
 <a name="0.1.1"></a>
 ## 0.1.1 (2016-01-02)
 
