@@ -16,50 +16,70 @@
  */
 
 
-import * as messages from './messages';
+import {abstract} from 'core-decorators';
+
+import
+{
+    isAccessorPropertyDescriptor, isPropertyDataDescriptor, isMethodDescriptor
+} from 'pingo-common/guards';
 
 
 /**
  * The abstract class AbstractInjector models the root of a hierarchy of
  * classes.
  *
- * @public
+ * @abstract
  */
+@abstract
 export class AbstractInjector
 {
     /**
-     * Checks whether this is able to handle the injection request.
+     * Returns true whether this is able to handle the injection request.
      *
      * @abstract
      * @param {TargetType} target - the target object or function
-     * @param {string} attr - the target's attribute
+     * @param {String} attr - the target's attribute
      * @param {DescriptorType} descriptor - the descriptor
-     * @returns {boolean} - true whether this can handle the request,
+     * @returns {Boolean} - true whether this can handle the request,
      * false otherwise
      */
     /*eslint no-unused-vars:0*/
+    /* istanbul ignore next */
+    @abstract
     canInject(target, attr, descriptor)
-    {
-        throw new Error(messages.MSG_DERIVED_CLASSES_MUST_OVERRIDE);
-    }
+    {}
 
     /**
-     * Instructs this to inject the specified interfaces ifaces into
-     * the specified target's attribute ``attr`` or as parameters into
-     * the specified target's method ``attr``.
+     * Instructs this to inject according to the specified injection descriptor.
      *
      * @abstract
-     * @param {TargetType} target - the target object or function
-     * @param {string} attr - the target's attribute
-     * @param {DescriptorType} descriptor - the descriptor
-     * @param {Array<InterfaceType>} ifaces - the interfaces to inject
+     * @param {InjectionDescriptor} injectionDescriptor - the injection descriptor
      * @throws {InjectionError}
      * @returns {void}
      */
     /*eslint no-unused-vars:0*/
-    inject(target, attr, descriptor, ifaces)
+    /* istanbul ignore next */
+    @abstract
+    inject(injectionDescriptor)
+    {}
+}
+
+
+/**
+ * The class AbstractConstructorInjector models the root of a hierarchy of
+ * classes representing constructor parameter injectors.
+ */
+@abstract
+export class AbstractConstructorInjector extends AbstractInjector
+{
+    /**
+     * @override
+     */
+    canInject(target, attr, descriptor)
     {
-        throw new Error(messages.MSG_DERIVED_CLASSES_MUST_OVERRIDE);
+        return typeof target == 'function'
+               && attr == undefined
+               && descriptor == undefined;
     }
 }
 
@@ -68,9 +88,9 @@ export class AbstractInjector
  * The abstract class AbstractStaticPropertyInjector models the root of a
  * hierarchy of classes representing static property injectors.
  *
- * @public
- * @extends {AbstractInjector}
+ * @abstract
  */
+@abstract
 export class AbstractStaticPropertyInjector extends AbstractInjector
 {
     /**
@@ -78,11 +98,10 @@ export class AbstractStaticPropertyInjector extends AbstractInjector
      */
     canInject(target, attr, descriptor)
     {
-        return typeof target == 'function' &&
-            descriptor !== null &&
-            typeof descriptor == 'object' &&
-            typeof attr == 'string' &&
-            !descriptor.value;
+        return typeof target == 'function'
+               && typeof attr == 'string'
+               && (isAccessorPropertyDescriptor(descriptor)
+               || isPropertyDataDescriptor(descriptor));
     }
 }
 
@@ -91,9 +110,9 @@ export class AbstractStaticPropertyInjector extends AbstractInjector
  * The abstract class AbstractInstancePropertyInjector models the root of a
  * hierarchy of classes representing instance property injectors.
  *
- * @public
- * @extends {AbstractInjector}
+ * @abstract
  */
+@abstract
 export class AbstractInstancePropertyInjector extends AbstractInjector
 {
     /**
@@ -101,12 +120,11 @@ export class AbstractInstancePropertyInjector extends AbstractInjector
      */
     canInject(target, attr, descriptor)
     {
-        return target !== null &&
-            typeof target == 'object' &&
-            descriptor !== null &&
-            typeof descriptor == 'object' &&
-            typeof attr == 'string' &&
-            !descriptor.value;
+        return target !== null
+               && typeof target == 'object'
+               && typeof attr == 'string'
+               && (isAccessorPropertyDescriptor(descriptor)
+               || isPropertyDataDescriptor(descriptor));
     }
 }
 
@@ -115,9 +133,9 @@ export class AbstractInstancePropertyInjector extends AbstractInjector
  * The abstract class AbstractStaticMethodInjector models the root of a
  * hierarchy of classes representing static method level parameter injectors.
  *
- * @public
- * @extends {AbstractInjector}
+ * @abstract
  */
+@abstract
 export class AbstractStaticMethodInjector extends AbstractInjector
 {
     /**
@@ -125,11 +143,9 @@ export class AbstractStaticMethodInjector extends AbstractInjector
      */
     canInject(target, attr, descriptor)
     {
-        return typeof target == 'function' &&
-            descriptor !== null &&
-            typeof descriptor == 'object' &&
-            typeof attr == 'string' &&
-            typeof descriptor.value == 'function';
+        return typeof target == 'function'
+               && typeof attr == 'string'
+               && isMethodDescriptor(descriptor);
     }
 }
 
@@ -138,9 +154,9 @@ export class AbstractStaticMethodInjector extends AbstractInjector
  * The abstract class AbstractInstanceMethodInjector models the root of a
  * hierarchy of classes representing instance method level parameter injectors.
  *
- * @public
- * @extends {AbstractInjector}
+ * @abstract
  */
+@abstract
 export class AbstractInstanceMethodInjector extends AbstractInjector
 {
     /**
@@ -148,42 +164,65 @@ export class AbstractInstanceMethodInjector extends AbstractInjector
      */
     canInject(target, attr, descriptor)
     {
-        return target !== null &&
-            typeof target == 'object' &&
-            descriptor !== null &&
-            typeof descriptor == 'object' &&
-            typeof attr == 'string' &&
-            typeof descriptor.value == 'function';
+        return target !== null
+               && typeof target == 'object'
+               && typeof attr == 'string'
+               && isMethodDescriptor(descriptor);
     }
 }
 
 
 /**
- * @typedef {(function|string|Symbol)} InterfaceType
+ * TODO:rename to DiscriminatorType
+ * @typedef {(Class|String|Symbol)} InterfaceType
  */
 
 
 /**
+ * TODO:external
  * @typedef {(MethodDescriptorType|PropertyDescriptorType)} DescriptorType
  */
 
 
 /**
+ * TODO:external
  * The property descriptor provided by the babel runtime.
  *
  * @typedef {Object} PropertyDescriptorType
+ * @property {Boolean} customizable
+ * @property {Boolean} enumerable
+ * @property {Boolean} writable
+ * @property {Function} get
+ * @property {Function} set
+ * @property {Function} initializer
  */
 
 
 /**
+ * TODO:external
  * The method descriptor provided by the babel runtime.
  *
  * @typedef {Object} MethodDescriptorType
- * @property {function} value the method
+ * @property {Boolean} customizable
+ * @property {Boolean} enumerable
+ * @property {Function} value - the method
  */
 
 
 /**
- * @typedef {(function|Object)} TargetType
+ * TODO:external
+ * @typedef {(Function|Object)} TargetType
+ */
+
+
+/**
+ * TODO:external
+ * The injection descriptor.
+ *
+ * @typedef {Object} InjectionDescriptor
+ * @property {TargetType} target
+ * @property {String} attr
+ * @property {DescriptorType} descriptor
+ * @property {Array<InterfaceType>} ifaces
  */
 

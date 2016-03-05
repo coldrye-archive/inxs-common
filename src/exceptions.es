@@ -15,30 +15,30 @@
  * limitations under the License.
  */
 
+
 import EsError from 'esbases/error';
 
 
 /**
- * Exception thrown by injectors.
- *
- * @public
+ * The class InjectionError is thrown by injectors in case of failure.
  */
 export default class InjectionError extends EsError
 {
     /**
      * @param {string} message - the message
-     * @param {*} [data] - optional data
-     * @returns {void}
+     * @param {Object} options - the optional parameters
+     * @param {Error} options.cause - the optional cause
+     * @param {*} options.data - the optional data
      */
-    constructor(message, data = null)
+    constructor(message, {data, cause} = {})
     {
-        super(message);
+        super(message, cause);
 
         this._data = data;
     }
 
     /**
-     * Gets the data or null.
+     * Gets the data.
      *
      * @type {*}
      */

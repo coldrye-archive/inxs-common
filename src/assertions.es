@@ -15,33 +15,34 @@
  * limitations under the License.
  */
 
-import * as sprintf from 'sprintf-js';
+
+import {isInitializedPropertyDescriptor} from 'pingo-common/guards';
+import {className} from 'pingo-common/utils';
 
 import InjectionError from './exceptions';
-import * as messages from './messages';
-import * as util from './util';
 
 
 /**
  * Asserts that the specified property descriptor does not define an
  * initializer.
  *
+ * @CURRENT LIMITATION
+ * Properties with initializers will be bound when invoking the constructor
+ * and cannot be late bound.
+ *
  * @protected
- * @param {TargetType} target - the target object or function
- * @param {string} attr - the target's attribute
- * @param {PropertyDescriptor} descriptor - the descriptor
- * @param {Array<InterfaceType>} ifaces - the interfaces to inject
+ * @param {InjectionDescriptorType} injectionDescriptor - the injection descriptor
  * @throws {InjectionError}
  * @returns {void}
  */
-export function assertNotInitialized(target, attr, descriptor, ifaces)
+export function assertNotInitialized({target, attr, descriptor, ifaces})
 {
-    if (typeof descriptor.initializer == 'function')
+    if (isInitializedPropertyDescriptor(descriptor))
     {
-        _doThrow
-        (
-            messages.MSG_UNABLE_TO_INJECT_INITIALIZED,
-            target, attr, descriptor, ifaces
+        throw new InjectionError(
+            'unable to inject into initialized property'
+            + ` "${attr}" of target "${className(target)}"`,
+            {target, attr, descriptor, ifaces}
         );
     }
 }
@@ -51,20 +52,18 @@ export function assertNotInitialized(target, attr, descriptor, ifaces)
  * Asserts that the user tries to inject a single interface only.
  *
  * @protected
- * @param {TargetType} target - the target object or function
- * @param {string} attr - the target's attribute
- * @param {PropertyDescriptor} descriptor - the descriptor
- * @param {Array<InterfaceType>} ifaces - the interfaces to inject
+ * @param {InjectionDescriptorType} injectionDescriptor - the injection descriptor
  * @throws {InjectionError}
  * @returns {void}
  */
-export function assertSingleInterfaceOnly(target, attr, descriptor, ifaces)
+export function assertSingleInterfaceOnly({target, attr, descriptor, ifaces})
 {
     if (ifaces.length > 1)
     {
-        _doThrow (
-            messages.MSG_SINGLE_INFACE_ONLY,
-            target, attr, descriptor, ifaces
+        throw new InjectionError(
+            `single interface expected when injecting into property`
+            + ` "${attr}" of target "${className(target)}"`,
+            {target, attr, descriptor, ifaces}
         );
     }
 }
@@ -75,51 +74,19 @@ export function assertSingleInterfaceOnly(target, attr, descriptor, ifaces)
  * or greater than the number of interfaces injected.
  *
  * @protected
- * @param {TargetType} target - the target object or function
- * @param {string} attr - the target's attribute
- * @param {PropertyDescriptor} descriptor - the descriptor
- * @param {Array<TargetType>} ifaces - the interfaces to inject
+ * @param {InjectionDescriptorType} injectionDescriptor - the injection descriptor
  * @throws {InjectionError}
  * @returns {void}
  */
-export function assertFormalParametersMatch(
-    target, attr, descriptor, ifaces
-)
+export function assertFormalParametersMatch({target, attr, descriptor, ifaces})
 {
     if (descriptor.value.length < ifaces.length)
     {
-        _doThrow (
-            messages.MSG_FORMAL_PARAMETERS_DO_NOT_MATCH,
-            target, attr, descriptor, ifaces
+        throw new InjectionError(
+            'unable to inject more interfaces than there are formal parameters'
+            + ` into method "${attr}" of target "$(className(target)}"`,
+            {target, attr, descriptor, ifaces}
         );
     }
-}
-
-
-/**
- * Internal helper for throwing an injection error.
- *
- * @private
- * @param {string} message - the message format string
- * @param {TargetType} target - the target object or function
- * @param {string} attr - the target's attribute
- * @param {PropertyDescriptor} descriptor - the descriptor
- * @param {Array<TargetType>} ifaces - the interfaces to inject
- * @throws {InjectionError}
- * @returns {void}
- */
-function _doThrow(message, target, attr, descriptor, ifaces)
-{
-    const className = util.className(target);
-
-    throw new InjectionError(
-        sprintf.sprintf(message, className, attr),
-        {
-            target : className,
-            attr : attr,
-            descriptor : descriptor,
-            interfaces : ifaces
-        }
-    );
 }
 

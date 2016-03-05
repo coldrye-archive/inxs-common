@@ -16,73 +16,57 @@
  */
 
 
-import * as common from '../src/inxs-common';
+import * as common from '../src/injectors';
 
 
-class StaticPropertyInjectorImpl extends common.AbstractStaticPropertyInjector {
-}
+export const accessorPropertyDescriptor = {
+    configurable: true,
+    enumerable: true,
+    get: function () {},
+    /*eslint no-unused-vars:0*/
+    set: function (v) {}
+};
 
 
-class InstancePropertyInjectorImpl extends
-common.AbstractInstancePropertyInjector {
-}
-
-
-class StaticMethodInjectorImpl extends common.AbstractStaticMethodInjector {
-}
-
-
-class InstanceMethodInjectorImpl extends common.AbstractInstanceMethodInjector {
-}
-
-
-export const incompleteInjector = new common.AbstractInjector();
-
-
-export const staticPropertyInjector = new StaticPropertyInjectorImpl();
-
-
-export const instancePropertyInjector = new InstancePropertyInjectorImpl();
-
-
-export const staticMethodInjector = new StaticMethodInjectorImpl();
-
-
-export const instanceMethodInjector = new InstanceMethodInjectorImpl();
-
-
-export const attr = 'attr';
-
-
-export const propertyDescriptor = {
-
-    initializer : null
+export const accessorPropertyDescriptor2 = {
+    configurable: true,
+    enumerable: true,
+    /*eslint no-unused-vars:0*/
+    set: function (v) {}
 };
 
 
 export const initializedPropertyDescriptor = {
-
+    configurable: true,
+    enumerable: true,
+    writable: true,
     initializer : function () {}
 };
 
 
-export const methodDescriptor = {
+export const propertyDataDescriptor = {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    value : 5
+};
 
+
+export const methodDescriptor = {
+    configurable: true,
+    enumerable: true,
+    writable: true,
     value : function () {}
 };
 
 
 export const singleParamMethodDescriptor = {
-
-    /*eslint no-unused-vars:0*/
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    /*eslint no-unused-params:0*/
     value : function (param) {}
 };
-
-
-export class targetClass {}
-
-
-export const targetInstance = new targetClass();
 
 
 export const testIface = ['testIface'];

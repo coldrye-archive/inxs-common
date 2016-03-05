@@ -16,12 +16,10 @@
  */
 
 
-import assert from 'esaver';
-
-import * as fixtures from './fixtures';
-
 import * as assertions from '../src/assertions';
 import InjectionError from '../src/exceptions';
+
+import * as fixtures from './fixtures';
 
 
 describe('assertNotInitialized()',
@@ -30,27 +28,31 @@ function ()
     it('must throw on initialized property',
     function ()
     {
-        assert.throws(
-        function ()
+        function tc()
         {
-            assertions.assertNotInitialized(
-                fixtures.targetInstance, fixtures.attr,
-                fixtures.initializedPropertyDescriptor, fixtures.testIface
-            );
-        }, InjectionError);
+            assertions.assertNotInitialized({
+                target:{},
+                attr:fixtures.attr,
+                descriptor:fixtures.initializedPropertyDescriptor,
+                ifaces:fixtures.testIface
+            });
+        }
+        tc.should.throw(InjectionError);
     });
 
     it('must not throw on non initialized instance property',
     function ()
     {
-        assert.doesNotThrow(
-        function ()
+        function tc()
         {
-            assertions.assertNotInitialized(
-                fixtures.targetInstance, fixtures.attr,
-                fixtures.propertyDescriptor, fixtures.testIface
-            );
-        });
+            assertions.assertNotInitialized({
+                target:{},
+                attr:fixtures.attr,
+                descriptor:fixtures.propertyDataDescriptor,
+                ifaces:fixtures.testIface
+            });
+        }
+        tc.should.not.throw(InjectionError);
     });
 });
 
@@ -61,27 +63,31 @@ function ()
     it('must throw on multiple interfaces for instance property',
     function ()
     {
-        assert.throws(
-        function ()
+        function tc()
         {
-            assertions.assertSingleInterfaceOnly(
-                fixtures.targetInstance, fixtures.attr,
-                fixtures.propertyDescriptor, fixtures.testIfaces
-            );
-        }, InjectionError);
+            assertions.assertSingleInterfaceOnly({
+                target:{},
+                attr:fixtures.attr,
+                descriptor:fixtures.propertyDataDescriptor,
+                ifaces:fixtures.testIfaces
+            });
+        }
+        tc.should.throw(InjectionError);
     });
 
     it('must not throw on single interface for instance property',
     function ()
     {
-        assert.doesNotThrow(
-        function ()
+        function tc()
         {
-            assertions.assertSingleInterfaceOnly(
-                fixtures.targetInstance, fixtures.attr,
-                fixtures.propertyDescriptor, fixtures.testIface
-            );
-        });
+            assertions.assertSingleInterfaceOnly({
+                target:{},
+                attr:fixtures.attr,
+                descriptor:fixtures.propertyDataDescriptor,
+                ifaces:fixtures.testIface
+            });
+        }
+        tc.should.not.throw(InjectionError);
     });
 });
 
@@ -92,27 +98,31 @@ function ()
     it('must throw on non matching parameters for method',
     function ()
     {
-        assert.throws(
-        function ()
+        function tc()
         {
-            assertions.assertFormalParametersMatch(
-                fixtures.targetInstance, fixtures.attr,
-                fixtures.methodDescriptor, fixtures.testIface
-            );
-        }, InjectionError);
+            assertions.assertFormalParametersMatch({
+                target:{},
+                attr:fixtures.attr,
+                descriptor:fixtures.methodDescriptor,
+                ifaces:fixtures.testIface
+            });
+        }
+        tc.should.throw(InjectionError);
     });
 
     it('must not throw on matching parameters for method',
     function ()
     {
-        assert.doesNotThrow(
-        function ()
+        function tc()
         {
-            assertions.assertFormalParametersMatch(
-                fixtures.targetInstance, fixtures.attr,
-                fixtures.singleParamMethodDescriptor, fixtures.testIface
-            );
-        });
+            assertions.assertFormalParametersMatch({
+                target:{},
+                attr:fixtures.attr,
+                descriptor:fixtures.singleParamMethodDescriptor,
+                ifaces:fixtures.testIface
+            });
+        }
+        tc.should.not.throw(InjectionError);
     });
 });
 

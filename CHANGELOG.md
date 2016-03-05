@@ -1,3 +1,27 @@
+<a name="0.1.4"></a>
+## 0.1.4 (2016-03-07)
+
+
+* version bump v0.1.4 ([fd4bb90](https://github.com/coldrye-es/inxs-common/commit/fd4bb90))
+
+### refactor
+
+* refactor: major refactoring incl. breaking changes to the API, moving to chai for tests ([a92b4d1](https://github.com/coldrye-es/inxs-common/commit/a92b4d1))
+
+
+
+<a name="0.1.3"></a>
+## 0.1.3 (2016-02-08)
+
+
+* forgot to update changelog
+
+### chore
+
+* chore(dependencies): removing global babel dependency as it was deprecated
+
+
+
 <a name="0.1.2"></a>
 ## 0.1.2 (2016-01-23)
 

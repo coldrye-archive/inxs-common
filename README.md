@@ -35,8 +35,7 @@ including test coverage reports and API documentation.
 
 ## Contributing
 
-While I believe that the feature set of the software can be considered final,
-you are very welcome to propose changes and report bugs, or even provide pull
+You are very welcome to propose changes and report bugs, or even provide pull
 requests on [github](https://github.com/coldrye-es/inxs-common).
 
 See the [contributing guidelines](https://github.com/coldrye-es/inxs-common/blob/master/CONTRIBUTING.md) for more information.
@@ -64,6 +63,7 @@ See also [development dependencies](https://github.com/coldrye-es/esmake#develop
 
  - _[babel-runtime](https://github.com/babel/babel)_
  - [esbases](https://github.com/coldrye-es/esbases)
+ - [pingo-common](https://github.com/coldrye-es/pingo-common)
  - [sprintf-js](https://github.com/alexei/sprintf.js)
 
 **The dependencies denoted in _italics_ must be provided by the using project.**

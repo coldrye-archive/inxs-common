@@ -16,27 +16,33 @@
  */
 
 
-import assert from 'esaver';
-
 import InjectionError from '../src/exceptions';
 
 
 describe('InjectionError',
 function ()
 {
-    it('data must return correct value when set',
+    it('#data must have expected value when set',
     function ()
     {
-        const cut = new InjectionError('msg', 1);
-
-        assert.equal(cut.data, 1);
+        const data = 1;
+        const cut = new InjectionError('msg', {data});
+        cut.data.should.equal(data);
     });
 
-    it('data must return null when not set',
+    it('#data must be undefined when not set',
     function ()
     {
         const cut = new InjectionError('msg');
-        assert.equal(cut.data, null);
+        should.not.exist(cut.data);
+    });
+
+    it('#cause must have expected value when set',
+    function ()
+    {
+        const cause = new Error();
+        const cut = new InjectionError('msg', {cause});
+        cut.cause.should.deep.equal(cause);
     });
 });
 
