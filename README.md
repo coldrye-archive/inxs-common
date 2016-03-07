@@ -64,7 +64,6 @@ See also [development dependencies](https://github.com/coldrye-es/esmake#develop
  - _[babel-runtime](https://github.com/babel/babel)_
  - [esbases](https://github.com/coldrye-es/esbases)
  - [pingo-common](https://github.com/coldrye-es/pingo-common)
- - [sprintf-js](https://github.com/alexei/sprintf.js)
 
 **The dependencies denoted in _italics_ must be provided by the using project.**
 
