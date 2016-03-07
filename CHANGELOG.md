@@ -4,9 +4,13 @@
 
 * version bump v0.1.4 ([fd4bb90](https://github.com/coldrye-es/inxs-common/commit/fd4bb90))
 
+### chore
+
+* chore(dependencies): limiting eslint to <2.3.0 as greater versions will break babel-eslint ([cd90c75](https://github.com/coldrye-es/inxs-common/commit/cd90c75))
+
 ### refactor
 
-* refactor: major refactoring incl. breaking changes to the API, moving to chai for tests ([a92b4d1](https://github.com/coldrye-es/inxs-common/commit/a92b4d1))
+* refactor: major refactoring incl. breaking changes to the API, moving to chai for tests, introducing ([104f82d](https://github.com/coldrye-es/inxs-common/commit/104f82d))
 
 
 
