@@ -40,8 +40,7 @@ export class AbstractInjector
      * @param {TargetType} target - the target object or function
      * @param {String} attr - the target's attribute
      * @param {DescriptorType} descriptor - the descriptor
-     * @returns {Boolean} - true whether this can handle the request,
-     * false otherwise
+     * @returns {Boolean} - true whether this can handle the request
      */
     /*eslint no-unused-vars:0*/
     /* istanbul ignore next */
@@ -53,14 +52,16 @@ export class AbstractInjector
      * Instructs this to inject according to the specified injection descriptor.
      *
      * @abstract
-     * @param {InjectionDescriptor} injectionDescriptor - the injection descriptor
+     * @param {InjectionDescriptorType} injectionDescriptor - the injection descriptor
+     * @param {BrokerType} broker - the broker
+     * @param {LoggerType} logger - the logger
      * @throws {InjectionError}
      * @returns {void}
      */
     /*eslint no-unused-vars:0*/
     /* istanbul ignore next */
     @abstract
-    inject(injectionDescriptor)
+    inject(injectionDescriptor, broker, logger)
     {}
 }
 
@@ -170,59 +171,4 @@ export class AbstractInstanceMethodInjector extends AbstractInjector
                && isMethodDescriptor(descriptor);
     }
 }
-
-
-/**
- * TODO:rename to DiscriminatorType
- * @typedef {(Class|String|Symbol)} InterfaceType
- */
-
-
-/**
- * TODO:external
- * @typedef {(MethodDescriptorType|PropertyDescriptorType)} DescriptorType
- */
-
-
-/**
- * TODO:external
- * The property descriptor provided by the babel runtime.
- *
- * @typedef {Object} PropertyDescriptorType
- * @property {Boolean} customizable
- * @property {Boolean} enumerable
- * @property {Boolean} writable
- * @property {Function} get
- * @property {Function} set
- * @property {Function} initializer
- */
-
-
-/**
- * TODO:external
- * The method descriptor provided by the babel runtime.
- *
- * @typedef {Object} MethodDescriptorType
- * @property {Boolean} customizable
- * @property {Boolean} enumerable
- * @property {Function} value - the method
- */
-
-
-/**
- * TODO:external
- * @typedef {(Function|Object)} TargetType
- */
-
-
-/**
- * TODO:external
- * The injection descriptor.
- *
- * @typedef {Object} InjectionDescriptor
- * @property {TargetType} target
- * @property {String} attr
- * @property {DescriptorType} descriptor
- * @property {Array<InterfaceType>} ifaces
- */
 
