@@ -95,6 +95,33 @@ function ()
 describe('assertFormalParametersMatch()',
 function ()
 {
+    it('must throw on non matching parameters for constructor',
+    function ()
+    {
+        function tc()
+        {
+            assertions.assertFormalParametersMatch({
+                /*eslint no-unused-vars:0*/
+                target: function (injected) {},
+                ifaces:['iface1', 'iface2']
+            });
+        }
+        tc.should.throw(InjectionError);
+    });
+
+    it('must not throw on matching parameters for constructor',
+    function ()
+    {
+        function tc()
+        {
+            assertions.assertFormalParametersMatch({
+                target: function (injected, param1) {},
+                ifaces:['iface1']
+            });
+        }
+        tc.should.not.throw(InjectionError);
+    });
+
     it('must throw on non matching parameters for method',
     function ()
     {

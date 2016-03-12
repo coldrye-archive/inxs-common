@@ -1,3 +1,23 @@
+<a name="0.1.5"></a>
+## 0.1.5 (2016-03-12)
+
+
+* version bump v0.1.5 ([4f28615](https://github.com/coldrye-es/inxs-common/commit/4f28615))
+
+### chore
+
+* chore(dependencies): removing extraneous dependency sprintfjs ([f8245da](https://github.com/coldrye-es/inxs-common/commit/f8245da))
+
+### feat
+
+* feat(injectors): add support for constructor injection ([eddf416](https://github.com/coldrye-es/inxs-common/commit/eddf416))
+
+### refactor
+
+* refactor(injectors): move typedefs to separate source ([e40ff6e](https://github.com/coldrye-es/inxs-common/commit/e40ff6e))
+
+
+
 <a name="0.1.4"></a>
 ## 0.1.4 (2016-03-07)
 

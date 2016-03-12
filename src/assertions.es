@@ -26,9 +26,12 @@ import InjectionError from './exceptions';
  * Asserts that the specified property descriptor does not define an
  * initializer.
  *
- * @CURRENT LIMITATION
+ * **DESIGN LIMITATION**
  * Properties with initializers will be bound when invoking the constructor
- * and cannot be late bound.
+ * and cannot be late bound. This will cause errors in cases where the broker
+ * was not fully initialized. As such, we cannot support injection here, even
+ * with promises or similar mechanisms in place unless the broker itself is
+ * a promise, but this is beyond the scope of this API.
  *
  * @protected
  * @param {InjectionDescriptorType} injectionDescriptor - the injection descriptor
@@ -42,7 +45,7 @@ export function assertNotInitialized({target, attr, descriptor, ifaces})
         throw new InjectionError(
             'unable to inject into initialized property'
             + ` "${attr}" of target "${className(target)}"`,
-            {target, attr, descriptor, ifaces}
+            {data:{target, attr, descriptor, ifaces}}
         );
     }
 }
@@ -63,7 +66,7 @@ export function assertSingleInterfaceOnly({target, attr, descriptor, ifaces})
         throw new InjectionError(
             `single interface expected when injecting into property`
             + ` "${attr}" of target "${className(target)}"`,
-            {target, attr, descriptor, ifaces}
+            {data:{target, attr, descriptor, ifaces}}
         );
     }
 }
@@ -80,12 +83,20 @@ export function assertSingleInterfaceOnly({target, attr, descriptor, ifaces})
  */
 export function assertFormalParametersMatch({target, attr, descriptor, ifaces})
 {
-    if (descriptor.value.length < ifaces.length)
+    let injectionTarget = target;
+    let targetName = 'constructor';
+    if (descriptor && typeof descriptor.value == 'function')
+    {
+        injectionTarget = descriptor.value;
+        targetName = attr;
+    }
+
+    if (injectionTarget.length < ifaces.length)
     {
         throw new InjectionError(
             'unable to inject more interfaces than there are formal parameters'
-            + ` into method "${attr}" of target "$(className(target)}"`,
-            {target, attr, descriptor, ifaces}
+            + ` into "${targetName}" of target "$(className(target)}"`,
+            {data:{target, attr, descriptor, ifaces}}
         );
     }
 }
