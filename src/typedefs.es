@@ -1,92 +1,84 @@
-//vim:expandtab:ts=4:sw=4
+// vim: expandtab:ts=4:sw=4
 /*
-*Copyright2015-2016CarstenKlein
-*
-*LicensedundertheApacheLicense,Version2.0(the"License");
-*youmaynotusethisfileexceptincompliancewiththeLicense.
-*YoumayobtainacopyoftheLicenseat
-*
-*http://www.apache.org/licenses/LICENSE-2.0
-*
-*Unlessrequiredbyapplicablelaworagreedtoinwriting,software
-*distributedundertheLicenseisdistributedonan"ASIS"BASIS,
-*WITHOUTWARRANTIESORCONDITIONSOFANYKIND,eitherexpressorimplied.
-*SeetheLicenseforthespecificlanguagegoverningpermissionsand
-*limitationsundertheLicense.
-*/
+ * Copyright 2015-2016 Carsten Klein
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and 
+ * limitations under the License.
+ */
 
 
 /**
-*Thebroker.
-*
-*@typedef{Object}BrokerType
-*@property{function(iface:InterfaceType):Object}getInstance
-*@property{LoggerType}[logger]
-*@property{function(ifaces:Array<InterfaceType>):boolean}[validateInterfaces]
-*/
+ * The broker.
+ *
+ * @typedef {Object} BrokerType 
+ * @property {function(iface: InterfaceType): Object} getInstance
+ * @property {LoggerType} [logger]
+ * @property {function(ifaces: Array<InterfaceType>): boolean} [validateInterfaces]
+ */
 
 
 /**
-*Thelogger.
-*
-*@typedef{Object}LoggerType
-*@property{function(message:string,data:*):void}info
-*@property{function(message:string,data:*):void}warn
-*@property{function(message:string,data:*):void}debug
-*@property{function(message:string,data:*):void}error
-*/
+ * The logger.
+ *
+ * @typedef {Object} LoggerType
+ * @property {function(message: String, data: *): void} info
+ * @property {function(message: String, data: *): void} warn
+ * @property {function(message: String, data: *): void} debug
+ * @property {function(message: String, data: *): void} error
+ */
 
 
 /**
-*Theinjectiondescriptor.
-*
-*@typedef{Object}InjectionDescriptorType
-*@property{TargetType}target
-*@property{String}attr
-*@property{DescriptorType}descriptor
-*@property{Array<InterfaceType>}ifaces
-*/
+ * The injection descriptor.
+ *
+ * @typedef {Object} InjectionDescriptorType
+ * @property {TargetType} target
+ * @property {String} attr
+ * @property {DescriptorType} descriptor
+ * @property {Array<InterfaceType>} ifaces
+ */
 
 
 /**
-*TODO:renametoDiscriminatorType
-*@typedef{(Class|String|Symbol)}InterfaceType
-*/
+ * @typedef {(Class|String|Symbol)} InterfaceType
+ */
 
 
 /**
-*TODO:externalpingo
-*@typedef{(MethodDescriptorType|PropertyDescriptorType)}DescriptorType
-*/
+ * @typedef {(MethodDescriptorType|PropertyDescriptorType)} DescriptorType
+ */
 
 
 /**
-*TODO:externalpingo
-*Thepropertydescriptorprovidedbythebabelruntime.
-*
-*@typedef{Object}PropertyDescriptorType
-*@property{Boolean}customizable
-*@property{Boolean}enumerable
-*@property{Boolean}writable
-*@property{Function}get
-*@property{Function}set
-*@property{Function}initializer
-*/
+ * @typedef {AccessorPropertyDescriptorType|PropertyDataDescriptorType} PropertyDescriptorType
+ */
 
 
 /**
-*TODO:externalpingo
-*Themethoddescriptorprovidedbythebabelruntime.
-*
-*@typedef{Object}MethodDescriptorType
-*@property{Boolean}customizable
-*@property{Boolean}enumerable
-*@property{Function}value-themethod
-*/
+ * @external {AccessorPropertyDescriptorType} http://pingo.es.coldrye.eu/projects/pingo-common/doc/public/typedef/index.html#static-typedef-AccessorPropertyDescriptorType
+ */
 
 
 /**
-*TODO:externalpingo
-*@typedef{(Function|Object)}TargetType
-*/
+ * @external {PropertyDataDescriptorType} http://pingo.es.coldrye.eu/projects/pingo-common/doc/public/typedef/index.html#static-typedef-PropertyDataDescriptorType
+ */
+
+
+/**
+ * @external {MethodDescriptorType} http://pingo.es.coldrye.eu/projects/pingo-common/doc/public/typedef/index.html#static-typedef-MethodDescriptorType
+ */
+
+
+/**
+ * @external {TargetType} http://pingo.es.coldrye.eu/projects/pingo-common/doc/public/typedef/index.html#static-typedef-TargetType
+ */
 
