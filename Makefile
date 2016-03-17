@@ -19,7 +19,7 @@
 
 
 # The types of API documentation you want to have the system generate.
-doc = dev
+doc = dev pub
 
 
 
