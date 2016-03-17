@@ -16,7 +16,7 @@
  */
 
 
-import {abstract} from 'core-decorators';
+import {abstract} from 'pingo';
 
 import
 {
@@ -67,7 +67,7 @@ export class AbstractInjector
 
 
 /**
- * The class AbstractConstructorInjector models the root of a hierarchy of
+ * The abstract class AbstractConstructorInjector models the root of a hierarchy of
  * classes representing constructor parameter injectors.
  */
 @abstract
