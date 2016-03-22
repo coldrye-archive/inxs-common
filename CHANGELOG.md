@@ -1,3 +1,18 @@
+<a name="0.1.6"></a>
+## 0.1.6 (2016-03-22)
+
+
+* version bump v0.1.6 ([a02db92](https://github.com/coldrye-es/inxs-common/commit/a02db92))
+
+### chore
+
+* chore(apidocs): esdoc needs plugin for decorator feature, now generating both dev and pub docs ([5a1312e](https://github.com/coldrye-es/inxs-common/commit/5a1312e))
+* chore(dependencies): introduce pingo ([81392bf](https://github.com/coldrye-es/inxs-common/commit/81392bf))
+* chore(docs): improving api docs ([67eadd7](https://github.com/coldrye-es/inxs-common/commit/67eadd7))
+* chore(src): minor cleanup ([1fea613](https://github.com/coldrye-es/inxs-common/commit/1fea613))
+
+
+
 <a name="0.1.5"></a>
 ## 0.1.5 (2016-03-12)
 

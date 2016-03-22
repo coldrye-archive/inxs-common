@@ -32,9 +32,9 @@
     "prepublish": "test \"${MASTER}\" = \"1\" || (echo ${npm_config_argv} | grep -E '(install|update)' >/dev/null 2>/dev/null || (echo 'use *make publish* instead' && exit 1))"
   },
   "dependencies": {
-    "core-decorators": "github:coldrye-collaboration/core-decorators.js#gh-23-integrated",
     "esbases": ">=0.0",
-    "pingo-common": ">=0.0"
+    "pingo-common": ">=0.0",
+    "pingo": ">=0.0"
   },
   "devDependencies": {
     "babel-plugin-external-helpers-2": ">=6.3.x",
