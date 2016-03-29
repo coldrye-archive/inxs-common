@@ -43,7 +43,7 @@ export class AbstractInjector
      * @returns {Boolean} - true whether this can handle the request
      */
     /*eslint no-unused-vars:0*/
-    /* istanbul ignore next */
+    /*istanbul ignore next*/
     @abstract
     canInject(target, attr, descriptor)
     {}
@@ -59,7 +59,7 @@ export class AbstractInjector
      * @returns {void}
      */
     /*eslint no-unused-vars:0*/
-    /* istanbul ignore next */
+    /*istanbul ignore next*/
     @abstract
     inject(injectionDescriptor, broker, logger)
     {}
