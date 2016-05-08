@@ -43,7 +43,7 @@ See the [contributing guidelines](https://github.com/coldrye-es/inxs-common/blob
 
 ### Contributors
 
- - [Carsten Klein](https://github.com/silkentrance) **Maintainer**
+See [contributors](https://github.com/coldrye-es/inxs-common/graphs/contributors) for more information.
 
 
 ### Building
